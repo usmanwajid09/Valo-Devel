@@ -70,9 +70,11 @@ export function Navbar() {
               >
                 <button
                   className={cn(
-                    "flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-muted transition-colors hover:text-white",
+                    "flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-muted transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                     openMenu === item.dropdown && "text-white",
                   )}
+                  aria-expanded={openMenu === item.dropdown}
+                  aria-haspopup="true"
                 >
                   {item.label}
                   <ChevronDown
@@ -92,7 +94,7 @@ export function Navbar() {
             href={siteConfig.contact.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full border border-gold bg-gold/5 px-4 py-2 text-sm text-white transition-colors hover:bg-gold/10 lg:inline-flex"
+            className="hidden items-center gap-2 rounded-full border border-gold bg-gold/5 px-4 py-2 text-sm text-white transition-colors hover:bg-gold/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:inline-flex"
           >
             <MessageCircle className="h-4 w-4 text-gold" />
             24/7
@@ -121,26 +123,64 @@ export function Navbar() {
             className="absolute inset-x-0 top-full hidden lg:block"
           >
             <div className="container pt-3">
-              <div className="glass overflow-hidden rounded-2xl border border-gold/20 p-2 shadow-card">
-                {openMenu === "services" ? (
-                  <div className="grid grid-cols-2 gap-1">
-                    {serviceLinks.map((link) => (
-                      <MegaLink key={link.href} {...link} />
-                    ))}
-                    <Link
-                      href="/services"
-                      className="col-span-2 mt-1 flex items-center justify-center gap-2 rounded-xl bg-gold/10 py-3 text-sm font-medium text-gold transition-colors hover:bg-gold/15"
-                    >
-                      View all services <ArrowRight className="h-4 w-4" />
-                    </Link>
+              <div className="bg-surface overflow-hidden rounded-2xl border border-gold/20 p-6 shadow-card">
+                <div className="grid grid-cols-[1fr_2.4fr] gap-8">
+                  {/* Left Column: Featured Promo Card */}
+                  <div className="flex flex-col justify-between rounded-xl border border-gold/15 bg-background/40 p-5 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 h-28 w-28 bg-radial-fade opacity-50" aria-hidden="true" />
+                    <div>
+                      <span className="eyebrow text-[0.65rem] px-2.5 py-0.5 mb-3">
+                        {openMenu === "services" ? "AI-Native Partner" : "Valor Standards"}
+                      </span>
+                      <h4 className="font-heading text-base font-bold text-white mt-2 leading-snug">
+                        {openMenu === "services" 
+                          ? "We Build. We Deliver." 
+                          : "Transparency by Default"}
+                      </h4>
+                      <p className="mt-2 text-xs leading-relaxed text-muted">
+                        {openMenu === "services" 
+                          ? "Fully functional software milestone delivered in your first 7 days, or a 100% refund." 
+                          : "Treating your project like our mission. Access your team's Linear board and Slack streams."}
+                      </p>
+                    </div>
+                    <div className="mt-5">
+                      <Link 
+                        href={openMenu === "services" ? "/contact" : "/client-space"} 
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-gold hover:underline"
+                      >
+                        {openMenu === "services" ? "Start a Project" : "Explore Client Space"}
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    </div>
                   </div>
-                ) : (
-                  <div className="grid grid-cols-2 gap-1">
-                    {companyLinks.map((link) => (
-                      <MegaLink key={link.href} {...link} />
-                    ))}
+
+                  {/* Right Column: Links Grid */}
+                  <div>
+                    {openMenu === "services" ? (
+                      <div className="flex flex-col h-full justify-between">
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                          {serviceLinks.map((link) => (
+                            <MegaLink key={link.href} {...link} />
+                          ))}
+                        </div>
+                        <div className="mt-4 border-t border-gold/10 pt-4 flex justify-end">
+                          <Link
+                            href="/services"
+                            className="inline-flex items-center gap-2 rounded-xl bg-gold/10 hover:bg-gold/15 border border-gold/25 px-5 py-2.5 text-xs font-semibold text-gold transition-colors"
+                          >
+                            Explore All Services <ArrowRight className="h-3.5 w-3.5" />
+                          </Link>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                        {companyLinks.map((link) => (
+                          <MegaLink key={link.href} {...link} />
+                        ))}
+                      </div>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </motion.div>
@@ -221,7 +261,7 @@ function NavItem({ href, active, children }: { href: string; active?: boolean; c
     <Link
       href={href}
       className={cn(
-        "group relative rounded-full px-4 py-2 text-sm font-medium transition-colors",
+        "group relative rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         active ? "text-white" : "text-muted hover:text-white",
       )}
     >
@@ -236,14 +276,21 @@ function NavItem({ href, active, children }: { href: string; active?: boolean; c
   );
 }
 
-function MegaLink({ label, href, description }: { label: string; href: string; description?: string }) {
+function MegaLink({ label, href, description, icon: Icon }: { label: string; href: string; description?: string; icon?: any }) {
   return (
     <Link
       href={href}
-      className="group rounded-xl px-4 py-3 transition-colors hover:bg-white/5"
+      className="group flex gap-3.5 rounded-xl px-4 py-3 transition-all duration-200 hover:bg-white/5"
     >
-      <div className="text-sm font-medium text-white transition-colors group-hover:text-gold">{label}</div>
-      {description && <div className="mt-0.5 text-xs leading-relaxed text-muted">{description}</div>}
+      {Icon && (
+        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-gold bg-gold/5 text-gold group-hover:bg-gold group-hover:text-background transition-all duration-300">
+          <Icon className="h-4 w-4" />
+        </span>
+      )}
+      <div>
+        <div className="text-sm font-medium text-white transition-colors group-hover:text-gold-light">{label}</div>
+        {description && <div className="mt-1 text-xs leading-relaxed text-muted">{description}</div>}
+      </div>
     </Link>
   );
 }

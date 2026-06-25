@@ -129,7 +129,7 @@ export function AIChatWidget() {
       return {
         id,
         sender: "bot",
-        text: "Our team consists of 8 specialists: Hamza Malik (Founder & CEO), Usman Wajid (Project Manager & IT Consultant), Fahad Bilal (Senior Full-Stack Developer), senior leads for AI/ML, UI/UX, and DevOps, and junior developers. One dedicated expert owns each part of your project.",
+        text: "Our team consists of 9 specialists: Hamza Malik (Founder & CEO), Usman Wajid (Project Manager & IT Consultant), Fahad Bilal (Senior Full-Stack Developer), Dr. Arslan Raza (Senior AI & ML Engineer), Arwa Mehak (Data Scientist), Sarah Jenkins (Senior UI/UX), Michael Chen (Lead DevOps), and junior frontend and QA engineers. One dedicated expert owns each part of your project.",
         cta: { label: "Meet the Team", href: "/about#team" },
         timestamp,
       };

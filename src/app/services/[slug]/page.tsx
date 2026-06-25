@@ -12,6 +12,7 @@ import { CTASection } from "@/components/CTASection";
 import { services, getService } from "@/lib/services";
 import { caseStudies } from "@/lib/content";
 import { heroBackgrounds } from "@/lib/site";
+import { getServiceSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -35,8 +36,14 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
   const related = caseStudies.slice(0, 2);
   const otherServices = services.filter((s) => s.slug !== service.slug).slice(0, 3);
 
+  const schema = getServiceSchema(service);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <PageHero
         eyebrow="Service"
         image={heroBackgrounds.services}

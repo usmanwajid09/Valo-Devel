@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Loader } from "@/components/Loader";
 import { AIChatWidget } from "@/components/AIChatWidget";
 import { siteConfig } from "@/lib/site";
+import { getOrganizationSchema } from "@/lib/schema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,8 +54,15 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const orgSchema = getOrganizationSchema();
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+      </head>
       <body className="min-h-screen bg-background">
         <Loader />
         <Navbar />

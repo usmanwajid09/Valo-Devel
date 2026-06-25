@@ -370,6 +370,15 @@ export const team: TeamMember[] = [
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&h=400&q=80",
     bgImage: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=600&h=240&q=80",
   },
+  {
+    name: "Arwa Mehak",
+    role: "Data Scientist",
+    title: "Data Scientist",
+    bio: "Extracts actionable insights from complex datasets, builds predictive models, and designs data pipelines to drive business intelligence.",
+    skills: ["Data Science", "Machine Learning", "Python", "SQL", "BigQuery", "Data Visualization", "Pandas", "Scikit-Learn", "TensorFlow"],
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80",
+    bgImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&h=240&q=80",
+  },
 ];
 
 /* -------------------------------------------------------------------------- */

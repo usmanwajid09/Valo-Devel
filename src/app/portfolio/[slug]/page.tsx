@@ -10,6 +10,7 @@ import { Badge, TechChip } from "@/components/ui/Badge";
 import { cn } from "@/lib/utils";
 import { CTASection } from "@/components/CTASection";
 import { caseStudies, getCaseStudy } from "@/lib/content";
+import { getProjectSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -32,8 +33,14 @@ export default function CaseStudyDetailPage({ params }: { params: { slug: string
   const index = caseStudies.findIndex((c) => c.slug === study.slug);
   const next = caseStudies[(index + 1) % caseStudies.length];
 
+  const schema = getProjectSchema(study);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <PageHero
         eyebrow={study.category}
         crumbs={[{ label: "Portfolio", href: "/portfolio" }, { label: study.name }]}
