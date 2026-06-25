@@ -121,7 +121,7 @@ export function Navbar() {
             className="absolute inset-x-0 top-full hidden lg:block"
           >
             <div className="container pt-3">
-              <div className="glass overflow-hidden rounded-2xl border border-gold/20 p-6 shadow-card">
+              <div className="bg-surface overflow-hidden rounded-2xl border border-gold/20 p-6 shadow-card">
                 <div className="grid grid-cols-[1fr_2.4fr] gap-8">
                   {/* Left Column: Featured Promo Card */}
                   <div className="flex flex-col justify-between rounded-xl border border-gold/15 bg-background/40 p-5 relative overflow-hidden">
