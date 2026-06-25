@@ -288,36 +288,87 @@ export const industries: Industry[] = [
 /* -------------------------------------------------------------------------- */
 
 export type TeamMember = {
+  name: string;
   role: string;
   title: string;
   bio: string;
   skills: string[];
+  image: string;
+  bgImage: string;
 };
 
 export const team: TeamMember[] = [
   {
-    role: "Full-Stack Engineer",
-    title: "Full-Stack Engineer",
-    bio: "Owns the product end to end — from the database schema to the pixels — and ships working software every week.",
-    skills: ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "MongoDB", "REST APIs"],
+    name: "Hamza Malik",
+    role: "Founder & CEO",
+    title: "Founder & CEO",
+    bio: "Drives the operational excellence and delivery standards of Valor Devs under Global Vital Spark LLC, ensuring strict US compliance.",
+    skills: ["Product Strategy", "IT Consulting", "Business Operations", "Agile Management", "US compliance"],
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&h=400&q=80",
+    bgImage: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=600&h=240&q=80",
   },
   {
-    role: "AI & ML Engineer",
-    title: "AI & ML Engineer",
-    bio: "Turns data and LLMs into reliable features — from fine-tuned models to RAG systems and autonomous agents.",
-    skills: ["Python", "TensorFlow", "PyTorch", "LangChain", "OpenAI API", "Fine-tuning", "RAG", "LlamaIndex", "n8n", "Zapier"],
+    name: "Usman Wajid",
+    role: "Project Manager & IT Consultant",
+    title: "Project Manager & IT Consultant",
+    bio: "Bridges the gap between business requirements and technical sprints, coordinating linear milestones and timeline deliveries.",
+    skills: ["Agile/Scrum", "Linear/Jira", "Technical Scoping", "IT Strategy", "Client Relations"],
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80",
+    bgImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=240&q=80",
   },
   {
-    role: "UI/UX Designer",
-    title: "UI/UX Designer",
-    bio: "Designs experiences that are beautiful and usable, validated with real users before engineering begins.",
-    skills: ["Figma", "Adobe XD", "Design Systems", "Prototyping", "User Research", "Interaction Design", "Framer"],
+    name: "Fahad Bilal",
+    role: "Senior Full-Stack Developer",
+    title: "Senior Full-Stack Developer",
+    bio: "Leads engineering architecture and core development, engineering responsive Next.js apps, typed APIs, and database structures.",
+    skills: ["Next.js", "React", "Node.js", "TypeScript", "PostgreSQL", "MongoDB", "Prisma", "System Design"],
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80",
+    bgImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&h=240&q=80",
   },
   {
-    role: "Cloud & DevOps Engineer",
-    title: "Cloud & DevOps Engineer",
-    bio: "Builds the infrastructure that lets the team ship fast and sleep at night — automated, observable, cost-aware.",
-    skills: ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "CI/CD", "Terraform", "GitHub Actions"],
+    name: "Dr. Arslan Raza",
+    role: "Senior AI & ML Engineer",
+    title: "Senior AI & ML Engineer",
+    bio: "Engineers RAG vector search indices, custom model fine-tunes, and autonomous agent systems (LangChain, LlamaIndex).",
+    skills: ["Python", "TensorFlow", "PyTorch", "LangChain", "OpenAI API", "RAG", "n8n", "Zapier"],
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=400&q=80",
+    bgImage: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&h=240&q=80",
+  },
+  {
+    name: "Sarah Jenkins",
+    role: "Senior UI/UX Designer",
+    title: "Senior UI/UX Designer",
+    bio: "Designs pixel-perfect interfaces, visual systems, and interactive clickable prototypes to validate flows before code begins.",
+    skills: ["Figma", "Design Systems", "Prototyping", "User Research", "Interaction Design", "Framer"],
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&h=400&q=80",
+    bgImage: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&w=600&h=240&q=80",
+  },
+  {
+    name: "Michael Chen",
+    role: "Lead DevOps Engineer",
+    title: "Lead DevOps Engineer",
+    bio: "Architects secure microservices and cloud networks (AWS/GCP), IaC configuration, and automated build (CI/CD) pipelines.",
+    skills: ["AWS", "GCP", "Docker", "Kubernetes", "CI/CD", "Terraform", "GitHub Actions"],
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&h=400&q=80",
+    bgImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&h=240&q=80",
+  },
+  {
+    name: "Zainab Farooq",
+    role: "Junior Frontend Developer",
+    title: "Junior Frontend Developer",
+    bio: "Builds modular interfaces, styles web panels using Tailwind CSS, and maps interactive client states.",
+    skills: ["React", "HTML5/CSS3", "JavaScript", "Tailwind CSS", "Git", "Figma Handoff"],
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&h=400&q=80",
+    bgImage: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&h=240&q=80",
+  },
+  {
+    name: "Amina Malik",
+    role: "Junior QA Engineer",
+    title: "Junior QA Engineer",
+    bio: "Executes automated test scripts using Playwright and Cypress, maintains regressions, and audits API payloads.",
+    skills: ["Playwright", "Cypress", "Manual Testing", "API Testing", "Bug Reporting", "Git"],
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&h=400&q=80",
+    bgImage: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=600&h=240&q=80",
   },
 ];
 

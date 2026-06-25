@@ -10,7 +10,7 @@ export const serviceLinks: NavLink[] = services.map((s) => ({
 
 export const companyLinks: NavLink[] = [
   { label: "About", href: "/about", description: "Who we are and why we exist." },
-  { label: "Team", href: "/about#team", description: "Meet the four specialists." },
+  { label: "Team", href: "/about#team", description: "Meet our engineering and management team." },
   { label: "Process", href: "/process", description: "Our 7-day onboarding, day by day." },
   { label: "Project Planner", href: "/planner", description: "Estimate your project budget & team makeup." },
   { label: "Client Space", href: "/client-space", description: "View our real-time sprint board & tools." },

@@ -169,12 +169,12 @@ export default function AboutPage() {
       <Section id="team">
         <SectionHeading
           eyebrow="The Team"
-          title={<>Four specialists, <span className="text-gradient-gold">one mission</span></>}
-          subtitle="No generalists guessing. Each domain is owned by a dedicated specialist accountable for your outcome."
+          title={<>Our specialists, <span className="text-gradient-gold">one mission</span></>}
+          subtitle="No generalists guessing. Meet the specialists dedicated to delivering your project on time and within scope."
         />
         <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((member) => (
-            <StaggerItem key={member.role} className="h-full">
+            <StaggerItem key={member.name} className="h-full">
               <TeamCard member={member} />
             </StaggerItem>
           ))}
