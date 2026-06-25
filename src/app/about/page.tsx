@@ -215,8 +215,9 @@ export default function AboutPage() {
           {/* Level 3: Other Specialists & Juniors */}
           <div className="w-full flex flex-col items-center">
             {/* Horizontal connection bar (desktop only) */}
-            <div className="hidden lg:block w-[75%] h-px bg-gold/40" />
-            <div className="hidden lg:flex justify-between w-[75%] h-6">
+            <div className="hidden lg:block w-[80%] h-px bg-gold/40" />
+            <div className="hidden lg:flex justify-between w-[80%] h-6">
+              <div className="w-px bg-gold/40 h-full" />
               <div className="w-px bg-gold/40 h-full" />
               <div className="w-px bg-gold/40 h-full" />
               <div className="w-px bg-gold/40 h-full" />
@@ -224,7 +225,7 @@ export default function AboutPage() {
             </div>
 
             {/* Other Employees Row */}
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 w-full">
+            <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-full">
               <Reveal delay={0.2}>
                 <TeamCard member={team[4]} /> {/* Sarah Jenkins (UI/UX) */}
               </Reveal>
@@ -232,9 +233,12 @@ export default function AboutPage() {
                 <TeamCard member={team[5]} /> {/* Michael Chen (DevOps) */}
               </Reveal>
               <Reveal delay={0.3}>
-                <TeamCard member={team[6]} /> {/* Zainab Farooq (Junior Frontend) */}
+                <TeamCard member={team[8]} /> {/* Arwa Mehak (Data Scientist) */}
               </Reveal>
               <Reveal delay={0.35}>
+                <TeamCard member={team[6]} /> {/* Zainab Farooq (Junior Frontend) */}
+              </Reveal>
+              <Reveal delay={0.4}>
                 <TeamCard member={team[7]} /> {/* Amina Malik (Junior QA) */}
               </Reveal>
             </div>
