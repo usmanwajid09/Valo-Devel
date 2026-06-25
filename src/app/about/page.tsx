@@ -165,20 +165,81 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Team */}
-      <Section id="team">
+      {/* Team Hierarchy Tree */}
+      <Section id="team" className="scroll-mt-20">
         <SectionHeading
-          eyebrow="The Team"
-          title={<>Our specialists, <span className="text-gradient-gold">one mission</span></>}
-          subtitle="No generalists guessing. Meet the specialists dedicated to delivering your project on time and within scope."
+          eyebrow="Team Structure"
+          title={<>Our organizational <span className="text-gradient-gold">hierarchy</span></>}
+          subtitle="A structured, accountable team with senior oversight and transparent execution paths."
         />
-        <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {team.map((member) => (
-            <StaggerItem key={member.name} className="h-full">
-              <TeamCard member={member} />
-            </StaggerItem>
-          ))}
-        </Stagger>
+
+        <div className="mt-16 flex flex-col items-center">
+          {/* Level 1: CEO */}
+          <div className="flex flex-col items-center">
+            <Reveal>
+              <div className="w-[280px] sm:w-[320px]">
+                <TeamCard member={team[0]} /> {/* Hamza Malik (CEO) */}
+              </div>
+            </Reveal>
+            {/* Vertical connector line down from CEO */}
+            <div className="h-10 w-px bg-gold/40" />
+          </div>
+
+          {/* Level 2: 3 Seniors */}
+          <div className="w-full flex flex-col items-center">
+            {/* Horizontal connection bar (desktop only) */}
+            <div className="hidden md:block w-[66%] h-px bg-gold/40" />
+            <div className="hidden md:flex justify-between w-[66%] h-6">
+              <div className="w-px bg-gold/40 h-full" />
+              <div className="w-px bg-gold/40 h-full" />
+              <div className="w-px bg-gold/40 h-full" />
+            </div>
+
+            {/* Seniors Row */}
+            <div className="grid gap-6 md:grid-cols-3 max-w-4xl w-full">
+              <Reveal delay={0.05}>
+                <TeamCard member={team[1]} /> {/* Usman Wajid (PM & Consultant) */}
+              </Reveal>
+              <Reveal delay={0.1}>
+                <TeamCard member={team[2]} /> {/* Fahad Bilal (Senior Developer) */}
+              </Reveal>
+              <Reveal delay={0.15}>
+                <TeamCard member={team[3]} /> {/* Dr. Arslan Raza (Senior AI/ML) */}
+              </Reveal>
+            </div>
+
+            {/* Vertical connector line down from Seniors row */}
+            <div className="h-10 w-px bg-gold/40 mt-6" />
+          </div>
+
+          {/* Level 3: Other Specialists & Juniors */}
+          <div className="w-full flex flex-col items-center">
+            {/* Horizontal connection bar (desktop only) */}
+            <div className="hidden lg:block w-[75%] h-px bg-gold/40" />
+            <div className="hidden lg:flex justify-between w-[75%] h-6">
+              <div className="w-px bg-gold/40 h-full" />
+              <div className="w-px bg-gold/40 h-full" />
+              <div className="w-px bg-gold/40 h-full" />
+              <div className="w-px bg-gold/40 h-full" />
+            </div>
+
+            {/* Other Employees Row */}
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 w-full">
+              <Reveal delay={0.2}>
+                <TeamCard member={team[4]} /> {/* Sarah Jenkins (UI/UX) */}
+              </Reveal>
+              <Reveal delay={0.25}>
+                <TeamCard member={team[5]} /> {/* Michael Chen (DevOps) */}
+              </Reveal>
+              <Reveal delay={0.3}>
+                <TeamCard member={team[6]} /> {/* Zainab Farooq (Junior Frontend) */}
+              </Reveal>
+              <Reveal delay={0.35}>
+                <TeamCard member={team[7]} /> {/* Amina Malik (Junior QA) */}
+              </Reveal>
+            </div>
+          </div>
+        </div>
       </Section>
 
       {/* Global reach */}
