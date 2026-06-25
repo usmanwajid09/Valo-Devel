@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { industries } from "@/lib/content";
 
-export function IndustriesGrid({ linkToDetail = false }: { linkToDetail?: boolean }) {
+export function IndustriesGrid({ linkToDetail = true }: { linkToDetail?: boolean }) {
   return (
     <Stagger className="grid grid-cols-2 gap-4 md:grid-cols-3">
       {industries.map((industry) => {
@@ -21,7 +21,7 @@ export function IndustriesGrid({ linkToDetail = false }: { linkToDetail?: boolea
         return (
           <StaggerItem key={industry.slug}>
             {linkToDetail ? (
-              <Link href="/portfolio" className="block h-full">
+              <Link href={`/portfolio?industry=${industry.slug}`} className="block h-full">
                 {card}
               </Link>
             ) : (

@@ -32,7 +32,7 @@ export default function IndustriesPage() {
             return (
               <StaggerItem key={industry.slug} className="h-full">
                 <Link
-                  href="/portfolio"
+                  href={`/portfolio?industry=${industry.slug}`}
                   className="group flex h-full items-start gap-5 rounded-2xl border border-gold bg-card/50 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:bg-card hover:shadow-gold"
                 >
                   <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-gold bg-gold/10 text-gold transition-colors duration-300 group-hover:bg-gold group-hover:text-background">
