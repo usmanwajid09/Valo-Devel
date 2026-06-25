@@ -1,0 +1,165 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ShieldCheck, MapPin, Clock } from "lucide-react";
+import { heroBackgrounds } from "@/lib/site";
+import { Button } from "@/components/ui/Button";
+import { Typewriter } from "@/components/ui/Typewriter";
+import { ParticleField } from "@/components/ParticleField";
+import { ShieldMark } from "@/components/Logo";
+import { siteConfig } from "@/lib/site";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.12, ease: [0.21, 0.47, 0.32, 0.98] },
+  }),
+};
+
+const rotatingServices = [
+  "Custom Software",
+  "AI & Machine Learning",
+  "Generative & Agentic AI",
+  "Mobile Apps",
+  "Cloud & DevOps",
+  "Product MVPs",
+];
+
+export function Hero() {
+  return (
+    <section className="relative flex min-h-[92vh] items-center overflow-hidden">
+      {/* Backgrounds */}
+      <Image
+        src={heroBackgrounds.cta}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center opacity-25"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/85 to-background" aria-hidden="true" />
+      <div className="absolute inset-0 bg-radial-fade" aria-hidden="true" />
+      <div className="absolute inset-0 bg-grid-faint [background-size:46px_46px] [mask-image:radial-gradient(70%_60%_at_50%_30%,black,transparent)]" aria-hidden="true" />
+      <ParticleField className="absolute inset-0" />
+
+      <div className="container relative grid items-center gap-12 py-20 lg:grid-cols-[1.15fr_0.85fr]">
+        {/* Copy */}
+        <div>
+          <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show">
+            <span className="eyebrow">
+              <ShieldCheck className="h-3.5 w-3.5" />
+              {siteConfig.subTagline}
+            </span>
+          </motion.div>
+
+          <motion.h1
+            custom={1}
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            className="mt-6 text-4xl font-bold leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl"
+          >
+            We Build.
+            <br />
+            We <span className="text-gradient-gold">Deliver.</span>
+          </motion.h1>
+
+          <motion.p
+            custom={2}
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            className="mt-6 max-w-xl text-lg text-muted"
+          >
+            An AI-native software engineering partner for US & UK businesses. We build{" "}
+            <span className="font-medium text-gold">
+              <Typewriter words={rotatingServices} />
+            </span>{" "}
+            — with a working milestone in your first 7 days.
+          </motion.p>
+
+          <motion.div
+            custom={3}
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            className="mt-9 flex flex-col gap-3 sm:flex-row"
+          >
+            <Button href="/contact" size="lg" withArrow>
+              Start a Project
+            </Button>
+            <Button href="/services" size="lg" variant="secondary">
+              View Services
+            </Button>
+          </motion.div>
+
+          <motion.div
+            custom={4}
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted"
+          >
+            <span className="inline-flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-gold" /> Austin, TX · US LLC
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <Clock className="h-4 w-4 text-gold" /> Available 24/7
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 text-gold" /> 7-Day Milestone Guarantee
+            </span>
+          </motion.div>
+        </div>
+
+        {/* Showcase image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+          className="relative hidden lg:block"
+        >
+          <div className="absolute -inset-6 rounded-[2.5rem] bg-gold/10 blur-3xl" aria-hidden="true" />
+          <div className="relative h-[480px] overflow-hidden rounded-3xl border border-gold/30 shadow-card">
+            <Image
+              src={heroBackgrounds.heroShowcase}
+              alt="Valor Devs engineers building software"
+              fill
+              priority
+              sizes="(max-width: 1024px) 0px, 40vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-br from-gold/15 to-transparent mix-blend-overlay" aria-hidden="true" />
+
+            {/* Brand badge */}
+            <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl border border-gold/30 bg-background/70 px-4 py-3 backdrop-blur-md">
+              <ShieldMark className="h-9 w-9" />
+              <div className="leading-tight">
+                <div className="font-heading text-sm font-bold text-white">Valor Devs</div>
+                <div className="text-[0.7rem] font-medium text-gold">Code with Courage</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Floating accent chip */}
+          <div className="animate-float absolute -right-5 top-10 rounded-2xl border border-gold/30 bg-card/90 px-4 py-3 shadow-gold backdrop-blur-md">
+            <div className="font-heading text-xl font-bold text-gradient-gold">AI-Native</div>
+            <div className="text-[0.7rem] text-muted">Engineering Team</div>
+          </div>
+          <div className="animate-float absolute -left-5 top-1/2 rounded-2xl border border-gold/30 bg-card/90 px-4 py-3 shadow-gold backdrop-blur-md" style={{ animationDelay: "1.5s" }}>
+            <div className="font-heading text-xl font-bold text-gradient-gold">7-Day</div>
+            <div className="text-[0.7rem] text-muted">First Milestone</div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Bottom fade */}
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" aria-hidden="true" />
+    </section>
+  );
+}
