@@ -6,7 +6,10 @@ import { SpotlightCard } from "@/components/ui/SpotlightCard";
 export function ServiceCard({ service }: { service: Service }) {
   const Icon = service.icon;
   return (
-    <Link href={`/services/${service.slug}`} className="block h-full">
+    <Link 
+      href={`/services/${service.slug}`} 
+      className="block h-full rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    >
       <SpotlightCard className="h-full p-7 bg-card/50">
         <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-gold bg-gold/10 text-gold transition-colors duration-300 group-hover:bg-gold group-hover:text-background">
           <Icon className="h-6 w-6" />

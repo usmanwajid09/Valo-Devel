@@ -8,7 +8,10 @@ import { SpotlightCard } from "@/components/ui/SpotlightCard";
 
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
-    <Link href={`/portfolio/${study.slug}`} className="block h-full">
+    <Link 
+      href={`/portfolio/${study.slug}`} 
+      className="block h-full rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+    >
       <SpotlightCard className="h-full bg-card/50 flex flex-col">
         <div className="relative h-44 overflow-hidden">
           <Image

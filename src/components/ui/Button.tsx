@@ -42,13 +42,21 @@ export function Button({
   ({ href: string } | { href?: undefined }) &
   React.ButtonHTMLAttributes<HTMLButtonElement> &
   React.AnchorHTMLAttributes<HTMLAnchorElement>) {
-  const classes = cn(base, variants[variant], sizes[size], "group", className);
+  const classes = cn(base, variants[variant], sizes[size], "group relative overflow-hidden", className);
   const content = (
     <>
-      {children}
-      {withArrow && (
-        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+      {variant === "primary" && (
+        <span 
+          className="absolute inset-0 block -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-[1200ms] ease-out group-hover:translate-x-full" 
+          style={{ willChange: "transform" }}
+        />
       )}
+      <span className="relative z-10 flex items-center justify-center gap-2">
+        {children}
+        {withArrow && (
+          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+        )}
+      </span>
     </>
   );
 

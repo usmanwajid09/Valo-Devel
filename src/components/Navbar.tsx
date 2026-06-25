@@ -70,9 +70,11 @@ export function Navbar() {
               >
                 <button
                   className={cn(
-                    "flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-muted transition-colors hover:text-white",
+                    "flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-muted transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                     openMenu === item.dropdown && "text-white",
                   )}
+                  aria-expanded={openMenu === item.dropdown}
+                  aria-haspopup="true"
                 >
                   {item.label}
                   <ChevronDown
@@ -92,7 +94,7 @@ export function Navbar() {
             href={siteConfig.contact.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full border border-gold bg-gold/5 px-4 py-2 text-sm text-white transition-colors hover:bg-gold/10 lg:inline-flex"
+            className="hidden items-center gap-2 rounded-full border border-gold bg-gold/5 px-4 py-2 text-sm text-white transition-colors hover:bg-gold/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:inline-flex"
           >
             <MessageCircle className="h-4 w-4 text-gold" />
             24/7
@@ -259,7 +261,7 @@ function NavItem({ href, active, children }: { href: string; active?: boolean; c
     <Link
       href={href}
       className={cn(
-        "group relative rounded-full px-4 py-2 text-sm font-medium transition-colors",
+        "group relative rounded-full px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         active ? "text-white" : "text-muted hover:text-white",
       )}
     >
