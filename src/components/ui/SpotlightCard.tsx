@@ -42,7 +42,7 @@ export function SpotlightCard({
       onMouseEnter={() => setIsFocused(true)}
       onMouseLeave={() => setIsFocused(false)}
       className={cn(
-        "relative overflow-hidden rounded-2xl border border-gold bg-card/40 transition-all duration-300 hover:-translate-y-[2px] hover:border-gold/45 hover:shadow-gold focus-within:ring-2 focus-within:ring-gold focus-within:ring-offset-2 focus-within:ring-offset-background",
+        "group relative overflow-hidden rounded-2xl border border-gold bg-card/40 transition-all duration-300 hover:-translate-y-[2px] hover:border-gold/45 hover:shadow-gold focus-within:ring-2 focus-within:ring-gold focus-within:ring-offset-2 focus-within:ring-offset-background",
         className
       )}
       {...props}

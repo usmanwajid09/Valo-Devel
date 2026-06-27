@@ -15,6 +15,7 @@ import { CaseStudyCard } from "@/components/cards/CaseStudyCard";
 import { TestimonialCard } from "@/components/cards/TestimonialCard";
 import { ArticleCard } from "@/components/cards/ArticleCard";
 import { CTASection } from "@/components/CTASection";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import { services } from "@/lib/services";
 import { caseStudies, testimonials, articles, differentiators } from "@/lib/content";
 
@@ -157,13 +158,13 @@ export default function HomePage() {
             const Icon = d.icon;
             return (
               <StaggerItem key={d.title} className="h-full">
-                <div className="flex h-full flex-col rounded-2xl border border-gold bg-card/50 p-7">
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-gold bg-gold/10 text-gold">
+                <SpotlightCard className="h-full p-7 bg-card/50">
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl border border-gold bg-gold/10 text-gold transition-colors duration-300 group-hover:bg-gold group-hover:text-background">
                     <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="font-heading text-base font-semibold text-white">{d.title}</h3>
                   <p className="mt-2.5 text-sm leading-relaxed text-muted">{d.description}</p>
-                </div>
+                </SpotlightCard>
               </StaggerItem>
             );
           })}

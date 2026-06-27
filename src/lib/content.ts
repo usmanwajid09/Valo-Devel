@@ -272,15 +272,59 @@ export type Industry = {
   icon: LucideIcon;
   title: string;
   description: string;
+  image: string;
+  accent: string;
 };
 
 export const industries: Industry[] = [
-  { slug: "healthcare", icon: HeartPulse, title: "Healthcare", description: "HIPAA-aware platforms, clinical tools, and AI that keeps a human in the loop." },
-  { slug: "fintech", icon: Landmark, title: "Fintech", description: "Secure payments, real-time dashboards, and compliant financial products." },
-  { slug: "ecommerce", icon: ShoppingCart, title: "eCommerce & Retail", description: "Omnichannel storefronts, mobile apps, and conversion-focused experiences." },
-  { slug: "saas", icon: Cloud, title: "SaaS", description: "Multi-tenant platforms, billing, and the infrastructure to scale them." },
-  { slug: "education", icon: GraduationCap, title: "Education", description: "Learning platforms, content tools, and analytics for better outcomes." },
-  { slug: "real-estate", icon: Building2, title: "Real Estate", description: "Property platforms, portals, and operations tools that cut busywork." },
+  {
+    slug: "healthcare",
+    icon: HeartPulse,
+    title: "Healthcare",
+    description: "HIPAA-aware platforms, clinical tools, and AI that keeps a human in the loop.",
+    image: "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?auto=format&fit=crop&w=600&q=80",
+    accent: "from-blue-500/20 to-gold/10",
+  },
+  {
+    slug: "fintech",
+    icon: Landmark,
+    title: "Fintech",
+    description: "Secure payments, real-time dashboards, and compliant financial products.",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80",
+    accent: "from-emerald-500/20 to-gold/10",
+  },
+  {
+    slug: "ecommerce",
+    icon: ShoppingCart,
+    title: "eCommerce & Retail",
+    description: "Omnichannel storefronts, mobile apps, and conversion-focused experiences.",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1d704d3?auto=format&fit=crop&w=600&q=80",
+    accent: "from-amber-500/20 to-gold/10",
+  },
+  {
+    slug: "saas",
+    icon: Cloud,
+    title: "SaaS",
+    description: "Multi-tenant platforms, billing, and the infrastructure to scale them.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80",
+    accent: "from-purple-500/20 to-gold/10",
+  },
+  {
+    slug: "education",
+    icon: GraduationCap,
+    title: "Education",
+    description: "Learning platforms, content tools, and analytics for better outcomes.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
+    accent: "from-indigo-500/20 to-gold/10",
+  },
+  {
+    slug: "real-estate",
+    icon: Building2,
+    title: "Real Estate",
+    description: "Property platforms, portals, and operations tools that cut busywork.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80",
+    accent: "from-cyan-500/20 to-gold/10",
+  },
 ];
 
 /* -------------------------------------------------------------------------- */
