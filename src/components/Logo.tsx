@@ -11,25 +11,44 @@ export function ShieldMark({ className }: { className?: string }) {
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="valorGold" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#e8c96d" />
-          <stop offset="55%" stopColor="#c9a84c" />
-          <stop offset="100%" stopColor="#a0832a" />
+        {/* Main Gold Gradient */}
+        <linearGradient id="valorGold" x1="0.1" y1="0.1" x2="0.9" y2="0.9">
+          <stop offset="0%" stopColor="#FFF2D4" />
+          <stop offset="50%" stopColor="#C9A84C" />
+          <stop offset="100%" stopColor="#8C6F1E" />
         </linearGradient>
+        {/* Soft Secondary Gradient */}
+        <linearGradient id="valorGoldLight" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0%" stopColor="#E8C96D" />
+          <stop offset="100%" stopColor="#FFFDF7" />
+        </linearGradient>
+        {/* Glowing shadow effect */}
+        <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="1.5" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
       </defs>
+
+      {/* Left Stroke of the geometric V */}
       <path
-        d="M24 2 4 9v18c0 13.2 8.6 22.4 20 27 11.4-4.6 20-13.8 20-27V9L24 2Z"
-        fill="rgba(201,168,76,0.08)"
-        stroke="url(#valorGold)"
-        strokeWidth="2"
-        strokeLinejoin="round"
+        d="M8 12 L20 44 L25 44 L13 12 Z"
+        fill="url(#valorGold)"
+        filter="url(#logoGlow)"
       />
+      {/* Right Stroke of the geometric V, overlapping slightly at bottom */}
       <path
-        d="M19 21l-6 6 6 6M29 21l6 6-6 6M26 18l-4 18"
-        stroke="url(#valorGold)"
-        strokeWidth="2.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M23 44 L35 12 L31 12 L19 44 Z"
+        fill="url(#valorGoldLight)"
+        opacity="0.85"
+      />
+      {/* Elegant four-pointed vital spark / AI star in the upper right */}
+      <path
+        d="M34 10 Q34 16 40 16 Q34 16 34 22 Q34 16 28 16 Q34 16 34 10 Z"
+        fill="url(#valorGold)"
+        filter="url(#logoGlow)"
       />
     </svg>
   );
