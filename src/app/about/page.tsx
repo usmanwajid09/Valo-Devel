@@ -29,24 +29,39 @@ export default function AboutPage() {
       {/* Story */}
       <Section>
         <div className="grid items-center gap-12 lg:grid-cols-2">
-          <SectionHeading
-            align="left"
-            eyebrow="Our Story"
-            title={<>A team built to <span className="text-gradient-gold">build</span></>}
-            subtitle="Valor Devs was founded on a simple frustration: software partners that overpromise, move slowly, and hide behind process. We do the opposite."
-            className="max-w-none"
-          />
-          <Reveal>
-            <div className="space-y-4 text-sm leading-relaxed text-muted">
-              <p>
-                We pair a small, senior team of specialists with an AI-native way of working. That combination lets us ship at the pace of a much larger firm — without the overhead, the layers, or the surprises.
-              </p>
-              <p>
-                Every engagement starts with a clear scope and a 7-day milestone. You see real, working software in your first week — not a slide deck. From there, we iterate in tight loops with full transparency.
-              </p>
-              <p>
-                We operate under {siteConfig.legalEntity}, registered in {siteConfig.address.city}, {siteConfig.address.state}, so US and UK clients get the contracts, invoicing, and accountability they expect.
-              </p>
+          <div className="space-y-6">
+            <SectionHeading
+              align="left"
+              eyebrow="Our Story"
+              title={<>A team built to <span className="text-gradient-gold">build</span></>}
+              subtitle="Valor Devs was founded on a simple frustration: software partners that overpromise, move slowly, and hide behind process. We do the opposite."
+              className="max-w-none mb-0"
+            />
+            <Reveal>
+              <div className="space-y-4 text-sm leading-relaxed text-muted">
+                <p>
+                  We pair a small, senior team of specialists with an AI-native way of working. That combination lets us ship at the pace of a much larger firm — without the overhead, the layers, or the surprises.
+                </p>
+                <p>
+                  Every engagement starts with a clear scope and a 7-day milestone. You see real, working software in your first week — not a slide deck. From there, we iterate in tight loops with full transparency.
+                </p>
+                <p>
+                  We operate under {siteConfig.legalEntity}, registered in {siteConfig.address.city}, {siteConfig.address.state}, so US and UK clients get the contracts, invoicing, and accountability they expect.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={0.1}>
+            <div className="relative group overflow-hidden rounded-2xl border border-gold bg-card shadow-lg hover:shadow-gold transition-all duration-300">
+              <div className="aspect-[4/3] w-full relative">
+                {/* Visual Unsplash Team Image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80)` }}
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" aria-hidden="true" />
+              </div>
             </div>
           </Reveal>
         </div>
@@ -153,15 +168,31 @@ export default function AboutPage() {
               Austin is one of the fastest-growing technology centers in the world — home to the headquarters and major campuses of Dell, Oracle, Tesla, and a thriving startup ecosystem. Basing our company here keeps us close to the standards, talent, and pace of the US tech industry.
             </p>
           </Reveal>
-          <Stagger className="grid grid-cols-3 gap-4">
-            {["Dell", "Oracle", "Tesla HQ"].map((co) => (
-              <StaggerItem key={co}>
-                <div className="flex h-24 items-center justify-center rounded-2xl border border-gold bg-card/50 font-heading text-base font-semibold text-white/60">
-                  {co}
+          <Reveal delay={0.1}>
+            <div className="relative group overflow-hidden rounded-2xl border border-gold bg-card shadow-lg hover:shadow-gold transition-all duration-300">
+              <div className="aspect-[16/9] w-full relative">
+                {/* Austin skyline tech photo */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url(https://images.unsplash.com/photo-1531219572328-a0e75a6a9d76?auto=format&fit=crop&w=800&q=80)` }}
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-black/20" aria-hidden="true" />
+                
+                {/* Overlaying Glassmorphic logos */}
+                <div className="absolute bottom-4 left-4 right-4 flex justify-between gap-2.5">
+                  {["Dell", "Oracle", "Tesla HQ"].map((co) => (
+                    <div 
+                      key={co} 
+                      className="flex-1 text-center py-2.5 rounded-xl border border-white/10 bg-black/40 backdrop-blur-md font-heading text-xs font-semibold text-white/90 hover:border-gold/50 hover:bg-black/60 transition-all duration-300"
+                    >
+                      {co}
+                    </div>
+                  ))}
                 </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </Section>
 
@@ -173,76 +204,110 @@ export default function AboutPage() {
           subtitle="A structured, accountable team with senior oversight and transparent execution paths."
         />
 
-        <div className="mt-16 flex flex-col items-center">
-          {/* Level 1: CEO */}
-          <div className="flex flex-col items-center">
-            <Reveal>
-              <div className="w-[280px] sm:w-[320px]">
-                <TeamCard member={team[0]} /> {/* Hamza Malik (CEO) */}
-              </div>
-            </Reveal>
-            {/* Vertical connector line down from CEO */}
-            <div className="h-10 w-px bg-gold/40" />
-          </div>
-
-          {/* Level 2: 3 Seniors */}
-          <div className="w-full flex flex-col items-center">
-            {/* Horizontal connection bar (desktop only) */}
-            <div className="hidden md:block w-[66%] h-px bg-gold/40" />
-            <div className="hidden md:flex justify-between w-[66%] h-6">
-              <div className="w-px bg-gold/40 h-full" />
-              <div className="w-px bg-gold/40 h-full" />
-              <div className="w-px bg-gold/40 h-full" />
+        <div className="mt-16 flex flex-col items-center w-full">
+          
+          {/* Tier 1: Co-Founders & C-Suite */}
+          <div className="w-full flex flex-col items-center mb-16">
+            <div className="mb-6 text-center">
+              <span className="text-xs font-bold uppercase tracking-widest text-gold/80 bg-gold/5 border border-gold/20 px-3 py-1 rounded-full">
+                Executive Board
+              </span>
             </div>
-
-            {/* Seniors Row */}
-            <div className="grid gap-6 md:grid-cols-3 max-w-4xl w-full">
-              <Reveal delay={0.05}>
-                <TeamCard member={team[1]} /> {/* Usman Wajid (PM & Consultant) */}
+            
+            {/* Co-Founders Row */}
+            <div className="grid gap-6 sm:grid-cols-2 max-w-3xl w-full justify-center">
+              <Reveal className="w-full">
+                <TeamCard member={team[0]} /> {/* Muhammad Iqbal Shahid (CEO) */}
               </Reveal>
-              <Reveal delay={0.1}>
-                <TeamCard member={team[2]} /> {/* Fahad Bilal (Senior Developer) */}
-              </Reveal>
-              <Reveal delay={0.15}>
-                <TeamCard member={team[3]} /> {/* Dr. Arslan Raza (Senior AI/ML) */}
+              <Reveal delay={0.05} className="w-full">
+                <TeamCard member={team[1]} /> {/* Usman Wajid (CTO) */}
               </Reveal>
             </div>
-
-            {/* Vertical connector line down from Seniors row */}
+            
+            {/* Vertical connector line */}
+            <div className="h-8 w-px bg-gold/40 my-4" />
+            
+            {/* C-Suite Officers Row */}
+            <div className="grid gap-6 sm:grid-cols-2 max-w-3xl w-full justify-center">
+              <Reveal delay={0.1} className="w-full">
+                <TeamCard member={team[2]} /> {/* Ubaidullah (COO) */}
+              </Reveal>
+              <Reveal delay={0.15} className="w-full">
+                <TeamCard member={team[3]} /> {/* Arwa Mehak (CFO) */}
+              </Reveal>
+            </div>
+            
+            {/* Vertical connector line down to VPs */}
             <div className="h-10 w-px bg-gold/40 mt-6" />
           </div>
 
-          {/* Level 3: Other Specialists & Juniors */}
-          <div className="w-full flex flex-col items-center">
+          {/* Tier 2: VP & Department Leadership */}
+          <div className="w-full flex flex-col items-center mb-16">
             {/* Horizontal connection bar (desktop only) */}
             <div className="hidden lg:block w-[80%] h-px bg-gold/40" />
-            <div className="hidden lg:flex justify-between w-[80%] h-6">
+            <div className="hidden lg:flex justify-between w-[80%] h-6 mb-2">
               <div className="w-px bg-gold/40 h-full" />
               <div className="w-px bg-gold/40 h-full" />
               <div className="w-px bg-gold/40 h-full" />
               <div className="w-px bg-gold/40 h-full" />
               <div className="w-px bg-gold/40 h-full" />
             </div>
+            
+            <div className="mb-8 text-center">
+              <span className="text-xs font-bold uppercase tracking-widest text-gold/80 bg-gold/5 border border-gold/20 px-3 py-1 rounded-full">
+                Department VPs & Leadership
+              </span>
+            </div>
 
-            {/* Other Employees Row */}
-            <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-full">
-              <Reveal delay={0.2}>
-                <TeamCard member={team[4]} /> {/* Sarah Jenkins (UI/UX) */}
+            {/* Department VPs Row */}
+            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-full">
+              <Reveal delay={0.2} className="w-full">
+                <TeamCard member={team[4]} /> {/* Hamza Hussain (CPO) */}
               </Reveal>
-              <Reveal delay={0.25}>
-                <TeamCard member={team[5]} /> {/* Michael Chen (DevOps) */}
+              <Reveal delay={0.25} className="w-full">
+                <TeamCard member={team[5]} /> {/* Fahad Bilal (VP of Engineering) */}
               </Reveal>
-              <Reveal delay={0.3}>
-                <TeamCard member={team[8]} /> {/* Arwa Mehak (Data Scientist) */}
+              <Reveal delay={0.3} className="w-full">
+                <TeamCard member={team[6]} /> {/* Dr. Arslan Raza (CAIO) */}
               </Reveal>
-              <Reveal delay={0.35}>
-                <TeamCard member={team[6]} /> {/* Zainab Farooq (Junior Frontend) */}
+              <Reveal delay={0.35} className="w-full">
+                <TeamCard member={team[7]} /> {/* Ahmad Masood (Head of Infrastructure) */}
               </Reveal>
-              <Reveal delay={0.4}>
-                <TeamCard member={team[7]} /> {/* Amina Malik (Junior QA) */}
+              <Reveal delay={0.4} className="w-full">
+                <TeamCard member={team[8]} /> {/* Amna (Head of Data Science) */}
+              </Reveal>
+            </div>
+            
+            {/* Vertical connector line down to Specialists */}
+            <div className="h-10 w-px bg-gold/40 mt-6" />
+          </div>
+
+          {/* Tier 3: Engineering Specialists */}
+          <div className="w-full flex flex-col items-center">
+            {/* Horizontal connection bar (desktop only) */}
+            <div className="hidden sm:block w-[40%] h-px bg-gold/40" />
+            <div className="hidden sm:flex justify-between w-[40%] h-6 mb-2">
+              <div className="w-px bg-gold/40 h-full" />
+              <div className="w-px bg-gold/40 h-full" />
+            </div>
+            
+            <div className="mb-6 text-center">
+              <span className="text-xs font-bold uppercase tracking-widest text-gold/80 bg-gold/5 border border-gold/20 px-3 py-1 rounded-full">
+                Engineering & Quality Specialists
+              </span>
+            </div>
+
+            {/* Specialists Row */}
+            <div className="grid gap-6 sm:grid-cols-2 max-w-2xl w-full justify-center">
+              <Reveal delay={0.45} className="w-full">
+                <TeamCard member={team[9]} /> {/* Zainab Farooq (Senior Frontend Engineer) */}
+              </Reveal>
+              <Reveal delay={0.5} className="w-full">
+                <TeamCard member={team[10]} /> {/* Amina Malik (Senior QA Engineer) */}
               </Reveal>
             </div>
           </div>
+          
         </div>
       </Section>
 
