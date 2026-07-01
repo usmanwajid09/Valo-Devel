@@ -17,8 +17,8 @@ export const siteConfig = {
   },
   contact: {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@valordevs.com",
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "+923249654345",
-    whatsappLink: "https://wa.me/923249654345",
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "+15128654345",
+    whatsappLink: "https://wa.me/15128654345",
   },
   social: {
     linkedin: "https://www.linkedin.com/company/valordevs",
