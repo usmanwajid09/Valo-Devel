@@ -38,7 +38,7 @@ const PROJECT_TYPES: ProjectType[] = [
     id: "web",
     title: "Custom Software & Web Apps",
     icon: Code2,
-    baseCost: 8500,
+    baseCost: 5200,
     baseDurationWeeks: 6,
     team: ["1x Full-Stack Engineer", "0.5x UI/UX Designer"],
     features: ["User Authentication & Roles", "Stripe Billing & Subscriptions", "Interactive Charts/Dashboards", "External API Integrations", "Admin Management Panel", "Real-Time Notifications"],
@@ -47,7 +47,7 @@ const PROJECT_TYPES: ProjectType[] = [
     id: "ai-ml",
     title: "AI & Machine Learning",
     icon: BrainCircuit,
-    baseCost: 12500,
+    baseCost: 7800,
     baseDurationWeeks: 8,
     team: ["1x AI & ML Engineer", "0.5x Full-Stack Engineer"],
     features: ["Custom Model Training", "Computer Vision / Image Detection", "Natural Language Processing (NLP)", "Predictive Analytics Models", "Data Ingestion & ML Pipelines", "FastAPI Service Wrapper"],
@@ -56,7 +56,7 @@ const PROJECT_TYPES: ProjectType[] = [
     id: "gen-ai",
     title: "Generative AI & Agentic AI",
     icon: Bot,
-    baseCost: 10500,
+    baseCost: 6400,
     baseDurationWeeks: 6,
     team: ["1x AI & ML Engineer", "0.5x Full-Stack Engineer", "0.25x DevOps Engineer"],
     features: ["LLM Integration (GPT/Claude)", "RAG System (Vector DB)", "Autonomous AI Agents", "n8n/Zapier Workflow Automation", "AI Chatbot / Support Assistant", "Guardrails & Hallucination Audits"],
@@ -65,7 +65,7 @@ const PROJECT_TYPES: ProjectType[] = [
     id: "mobile",
     title: "Mobile App Development",
     icon: Smartphone,
-    baseCost: 9500,
+    baseCost: 5800,
     baseDurationWeeks: 8,
     team: ["1x Mobile Developer", "0.5x UI/UX Designer"],
     features: ["Cross-Platform (iOS & Android)", "Offline Mode & Local Storage", "Push Notification Campaigns", "App Store & Google Play Launch", "Camera & Location Integrations", "In-App Purchases"],
@@ -74,7 +74,7 @@ const PROJECT_TYPES: ProjectType[] = [
     id: "devops",
     title: "Cloud & DevOps Operations",
     icon: Cloud,
-    baseCost: 6500,
+    baseCost: 4200,
     baseDurationWeeks: 4,
     team: ["1x Cloud & DevOps Engineer"],
     features: ["AWS/GCP Setup & Audit", "Terraform Infrastructure as Code", "Docker & Kubernetes setup", "GitHub Actions CI/CD Pipelines", "Monitoring & Alerts Setup", "Cloud Cost Optimization Plan"],
@@ -83,7 +83,7 @@ const PROJECT_TYPES: ProjectType[] = [
     id: "design",
     title: "UI/UX Design & Prototyping",
     icon: PenTool,
-    baseCost: 4500,
+    baseCost: 2800,
     baseDurationWeeks: 4,
     team: ["1x UI/UX Designer"],
     features: ["Interactive Figma Prototypes", "Custom Design System & Tokens", "In-Depth User Research & Audits", "Information Architecture Maps", "Development Handoff Assets", "Micro-interaction Mockups"],
@@ -92,7 +92,7 @@ const PROJECT_TYPES: ProjectType[] = [
     id: "qa",
     title: "QA, Automation & Testing",
     icon: ShieldCheck,
-    baseCost: 4500,
+    baseCost: 2500,
     baseDurationWeeks: 4,
     team: ["1x QA & Test Engineer"],
     features: ["End-to-End Playwright Suite", "Jest & Cypress Component Tests", "API Testing (Postman/Newman)", "Load & Stress Performance Tests", "Manual Regression Checklists", "CI/CD Integration Hooks"],
@@ -101,7 +101,7 @@ const PROJECT_TYPES: ProjectType[] = [
     id: "mvp",
     title: "Product Strategy & Rapid MVP",
     icon: Rocket,
-    baseCost: 5500,
+    baseCost: 3400,
     baseDurationWeeks: 4,
     team: ["1x Full-Stack Engineer", "0.5x UI/UX Designer"],
     features: ["Discovery Scoping Workshop", "Ruthless Feature Prioritization", "Interactive Figma Layouts", "Functional Phase 1 Web App", "User Analytics Integration", "Ready-to-Pitch Mockup Demo"],
@@ -159,9 +159,9 @@ export function ProjectPlanner() {
     const baseCost = currentProjectType.baseCost;
     const baseWeeks = currentProjectType.baseDurationWeeks;
 
-    // Feature addition cost ($1,200 per extra feature after the first 2)
+    // Feature addition cost ($600 per extra feature after the first 2)
     const featureExtraCount = Math.max(0, selectedFeatures.length - 2);
-    const featureCostAddition = featureExtraCount * 1200;
+    const featureCostAddition = featureExtraCount * 600;
 
     // Apply multipliers
     const rawCost = (baseCost + featureCostAddition) * compliance.costMultiplier * timeline.costMultiplier;
