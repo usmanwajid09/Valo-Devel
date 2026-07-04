@@ -1,10 +1,58 @@
 import { NextResponse } from "next/server";
 import { siteConfig } from "@/lib/site";
+import { rateLimit } from "@/lib/rate-limit";
+
+// Helper function to escape HTML special characters to prevent HTML/XSS injection
+function sanitizeInput(text: string): string {
+  if (!text) return "";
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;")
+    .replace(/\//g, "&#x2F;");
+}
 
 export async function POST(request: Request) {
   try {
+    // 1. IP-Based Rate Limiting Check
+    const ip = request.headers.get("x-forwarded-for")?.split(",")[0] || "127.0.0.1";
+    const limitResult = rateLimit(ip, 5, 15 * 60 * 1000); // 5 submissions per 15 mins
+
+    if (!limitResult.success) {
+      return NextResponse.json(
+        { success: false, error: "Too many contact submissions. Please try again in 15 minutes." },
+        { 
+          status: 429,
+          headers: {
+            "X-RateLimit-Limit": "5",
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": limitResult.resetTime.toString(),
+          }
+        }
+      );
+    }
+
     const body = await request.json();
-    const { name, company, email, whatsapp, service, budget, timeline, description } = body;
+    const rawName = body.name;
+    const rawCompany = body.company;
+    const rawEmail = body.email;
+    const rawWhatsapp = body.whatsapp;
+    const rawService = body.service;
+    const rawBudget = body.budget;
+    const rawTimeline = body.timeline;
+    const rawDescription = body.description;
+
+    // 2. Input Sanitization
+    const name = sanitizeInput(rawName);
+    const company = sanitizeInput(rawCompany);
+    const email = sanitizeInput(rawEmail);
+    const whatsapp = sanitizeInput(rawWhatsapp);
+    const service = sanitizeInput(rawService);
+    const budget = sanitizeInput(rawBudget);
+    const timeline = sanitizeInput(rawTimeline);
+    const description = sanitizeInput(rawDescription);
 
     // Validation
     if (!name || !email || !description) {
