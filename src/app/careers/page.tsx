@@ -84,7 +84,9 @@ export default function CareersPage() {
                   </div>
                 </div>
                 <Button
-                  href={`mailto:${siteConfig.contact.email}?subject=Application: ${encodeURIComponent(role.title)}`}
+                  href={siteConfig.contact.careersFormUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="secondary"
                   className="shrink-0"
                 >

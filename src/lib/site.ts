@@ -19,6 +19,7 @@ export const siteConfig = {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@valordevs.com",
     whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "+15128654345",
     whatsappLink: "https://wa.me/15128654345",
+    careersFormUrl: process.env.NEXT_PUBLIC_CAREERS_FORM_URL ?? "https://docs.google.com/forms/d/e/1FAIpQLSf4VlJWhV4P11P2xT3k5h4_lD-H3y9b-R7nO_kR4W3D8KjQqw/viewform",
   },
   social: {
     linkedin: "https://www.linkedin.com/company/valordevs",
