@@ -174,7 +174,7 @@ export default function AboutPage() {
                 {/* Austin skyline tech photo */}
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                  style={{ backgroundImage: `url(https://images.unsplash.com/photo-1531219572328-a0e75a6a9d76?auto=format&fit=crop&w=800&q=80)` }}
+                  style={{ backgroundImage: `url(https://images.unsplash.com/photo-1531218150217-54595bc2b934?auto=format&fit=crop&w=800&q=80)` }}
                   aria-hidden="true"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-black/20" aria-hidden="true" />
