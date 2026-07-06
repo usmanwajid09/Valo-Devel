@@ -16,7 +16,7 @@ export const siteConfig = {
     full: "Austin, TX 78731, United States",
   },
   contact: {
-    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@valordevs.com",
+    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "info@valordevs.com",
     whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "+15127608676",
     whatsappLink: "https://wa.me/15127608676",
   },

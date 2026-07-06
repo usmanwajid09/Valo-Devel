@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Mail } from "lucide-react";
 import { TechChip } from "@/components/ui/Badge";
 import type { TeamMember } from "@/lib/content";
 
@@ -24,6 +24,17 @@ export function TeamCard({ member }: { member: TeamMember }) {
         <p className="text-xs font-semibold uppercase tracking-wider text-gold mt-1">
           {member.role}
         </p>
+
+        {/* Email Link (if provided) */}
+        {member.email && (
+          <a 
+            href={`mailto:${member.email}`} 
+            className="mt-2 flex items-center gap-1.5 text-[0.75rem] text-muted hover:text-gold transition-colors duration-200"
+          >
+            <Mail className="h-3.5 w-3.5 text-gold/80" />
+            <span>{member.email}</span>
+          </a>
+        )}
 
         {/* Primary Qualification/Skill Badge */}
         <div className="mt-3">
