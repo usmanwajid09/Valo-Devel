@@ -7,6 +7,10 @@ DirectoryIndex index.html
 RewriteEngine On
 RewriteBase /
 
+# Redirect /index.html to / to prevent client-side React router 404 crashes
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ / [R=301,L]
+
 # 3. Handle Clean pretty URLs (e.g. /about serves about.html under the hood)
 # Check if the requested path is not an existing directory and not an existing file
 RewriteCond %{REQUEST_FILENAME} !-d
