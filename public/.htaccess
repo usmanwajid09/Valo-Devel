@@ -1,0 +1,20 @@
+# Next.js Static Export .htaccess configuration for Hostinger
+
+# 1. Define index.html as the default home page
+DirectoryIndex index.html
+
+# 2. Enable Rewrite Engine
+RewriteEngine On
+RewriteBase /
+
+# 3. Handle Clean pretty URLs (e.g. /about serves about.html under the hood)
+# Check if the requested path is not an existing directory and not an existing file
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Check if appending .html points to an actual file in the filesystem
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# 4. Fallback: If page is not found, route to custom Next.js 404 page
+ErrorDocument 404 /404.html
