@@ -25,6 +25,9 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   output: "export",
+  experimental: {
+    cpus: 1,
+  },
   images: {
     unoptimized: true,
     formats: ["image/avif", "image/webp"],
