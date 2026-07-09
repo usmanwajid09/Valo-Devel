@@ -217,7 +217,7 @@ export default function AboutPage() {
             {/* Co-Founders Row */}
             <div className="grid gap-6 sm:grid-cols-2 max-w-3xl w-full justify-center">
               <Reveal className="w-full">
-                <TeamCard member={team[0]} /> {/* Muhammad Iqbal Shahid (CEO) */}
+                <TeamCard member={team[0]} /> {/* Muhammad Iqbal (CEO) */}
               </Reveal>
               <Reveal delay={0.05} className="w-full">
                 <TeamCard member={team[1]} /> {/* Usman Wajid (Project Manager & Senior Developer) */}

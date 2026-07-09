@@ -220,9 +220,101 @@ export const caseStudies: CaseStudy[] = [
     accent: "from-violet-500/40 to-gold/20",
     image: `https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c${IMG}`,
   },
+  {
+    slug: "internal-accountants",
+    name: "Internal Accountants Portal",
+    client: "Internal Accountants",
+    category: "Web Apps",
+    industry: "Financial Services",
+    result: "Automated bookkeeping and reporting for 500+ corporate clients",
+    tech: ["Next.js", "Tailwind CSS", "Node.js", "PostgreSQL", "Stripe"],
+    overview:
+      "Internal Accountants is a premium UK-based financial firm that needed a high-performance bookkeeping portal to manage compliance, cash flow, and tax reporting for their growing list of corporate clients.",
+    challenge:
+      "Their legacy manual workflow was prone to human error and unable to compile tax records in real time, causing reporting delays.",
+    solution:
+      "We built a tailored portal with sub-second database query caching, automated Stripe billing pipelines, and client document sharing, accelerating accounting output by 74%.",
+    metrics: [
+      { label: "Bookkeeping speed", value: "+74%" },
+      { label: "Clients managed", value: "500+" },
+      { label: "Report latency", value: "<3s" },
+      { label: "Billing automation", value: "100%" },
+    ],
+    accent: "from-teal-500/40 to-gold/20",
+    image: `https://images.unsplash.com/photo-1554224155-8d04cb21cd6c${IMG}`,
+  },
+  {
+    slug: "globe-academics",
+    name: "Globe Academics Student Portal",
+    client: "Globe Academics",
+    category: "Web Apps",
+    industry: "Education",
+    result: "Unified student portal onboarding 10k+ active users",
+    tech: ["React", "Next.js", "Supabase", "Tailwind CSS", "Vercel"],
+    overview:
+      "Globe Academics, a premier educational consultancy, required a secure, unified student portal to manage admissions, schedules, and assignments.",
+    challenge:
+      "Fragmented third-party systems resulted in data silos and frequent login errors, degrading the student experience.",
+    solution:
+      "We designed and built a custom responsive portal featuring seamless single sign-on (SSO), class schedules, task tracking, and live messaging support.",
+    metrics: [
+      { label: "Active students", value: "10k+" },
+      { label: "Engagement rate", value: "+42%" },
+      { label: "Page load speed", value: "<1.2s" },
+      { label: "Issue resolution", value: "99%" },
+    ],
+    accent: "from-blue-500/40 to-gold/20",
+    image: `https://images.unsplash.com/photo-1523050854058-8df90110c9f1${IMG}`,
+  },
+  {
+    slug: "circle-lang",
+    name: "Circle Programming Language",
+    client: "Valor Devs (In-house Product)",
+    category: "Products",
+    industry: "Developer Tools",
+    result: "Fast-growing open-source compiler and VS Code extension",
+    tech: ["Rust", "TypeScript", "WebAssembly", "VS Code API", "GitHub"],
+    overview:
+      "A lightweight, blazing-fast programming language and companion VS Code extension engineered in-house to streamline system-level architecture design.",
+    challenge:
+      "Traditional compiler setups are complex and resource-heavy, discouraging quick developer prototyping.",
+    solution:
+      "We built Circle in Rust, compiling it to WebAssembly to run directly in the browser and VS Code extension. The extension provides instant diagnostic linting, autocomplete, and one-click compilation.",
+    metrics: [
+      { label: "GitHub downloads", value: "15k+" },
+      { label: "Compiler speed", value: "<10ms" },
+      { label: "Diagnosing time", value: "Real-time" },
+      { label: "Open source", value: "MIT License" },
+    ],
+    accent: "from-purple-500/40 to-gold/20",
+    image: `https://images.unsplash.com/photo-1555066931-4365d14bab8c${IMG}`,
+  },
+  {
+    slug: "weave-ai-router",
+    name: "Weave AI Router",
+    client: "Valor Devs (In-house Product)",
+    category: "Products",
+    industry: "AI Infrastructure",
+    result: "Intelligent AI gateway optimizing prompt routing and costs",
+    tech: ["Node.js", "Redis", "TypeScript", "OpenAI API", "Anthropic API"],
+    overview:
+      "An in-house intelligent middleware router that dynamically routes API prompts to the most optimal model based on complexity, speed requirements, and cost.",
+    challenge:
+      "Using premium models like Claude 3.5 Sonnet or GPT-4o for simple queries leads to excessive API bills for startups.",
+    solution:
+      "We designed Weave to run as a high-throughput proxy. It analyzes query complexity, routing simple prompts to lightweight models (Claude Haiku / GPT-4o-mini) and complex prompts to premium models, cutting costs by 40%.",
+    metrics: [
+      { label: "Cost savings", value: "-40%" },
+      { label: "Router latency", value: "<8ms" },
+      { label: "Prompts handled", value: "2.8M" },
+      { label: "Model routing accuracy", value: "98%" },
+    ],
+    accent: "from-rose-500/40 to-gold/20",
+    image: `https://images.unsplash.com/photo-1620712943543-bcc4688e7485${IMG}`,
+  },
 ];
 
-export const caseStudyFilters = ["All", "AI & ML", "Web Apps", "Mobile", "Cloud"] as const;
+export const caseStudyFilters = ["All", "Products", "AI & ML", "Web Apps", "Mobile", "Cloud"] as const;
 
 export function getCaseStudy(slug: string) {
   return caseStudies.find((c) => c.slug === slug);
@@ -240,6 +332,20 @@ export type Testimonial = {
 };
 
 export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Valor Devs completely transformed our bookkeeping portal at internalaccountants.com. They delivered a high-performance system ahead of schedule, enabling us to scale seamlessly.",
+    name: "Hamza Zahoor",
+    role: "CEO",
+    company: "Internal Accountants",
+  },
+  {
+    quote:
+      "Working with Valor Devs was a game-changer for globeacademics.com. They understood our educational workflow and delivered a clean, responsive platform that our students love using.",
+    name: "Dr. Aisha Vance",
+    role: "Founder & Director",
+    company: "Globe Academics",
+  },
   {
     quote:
       "Valor Devs shipped a working milestone in the first week and never slowed down. It felt like having a senior team that actually cared about our outcomes.",
@@ -300,7 +406,7 @@ export type TeamMember = {
 
 export const team: TeamMember[] = [
   {
-    name: "Muhammad Iqbal Shahid",
+    name: "Muhammad Iqbal",
     role: "CEO",
     title: "CEO",
     bio: "Drives the strategic vision, business operations, and executive leadership of Valor Devs, ensuring client success and US/international compliance.",

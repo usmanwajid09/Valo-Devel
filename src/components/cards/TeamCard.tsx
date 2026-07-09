@@ -3,14 +3,20 @@ import { TechChip } from "@/components/ui/Badge";
 import type { TeamMember } from "@/lib/content";
 
 export function TeamCard({ member }: { member: TeamMember }) {
+  const isCeo = member.role.toLowerCase().includes("ceo") || member.name.toLowerCase().includes("iqbal");
+
   return (
     <article className="group relative flex h-full flex-col items-center justify-between overflow-hidden rounded-2xl border border-gold bg-card/40 px-6 py-8 transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:shadow-gold">
       
       {/* Circular Avatar with Yellow/Gold Background */}
-      <div className="relative h-28 w-28 overflow-hidden rounded-full border-2 border-gold bg-[#F1C40F] p-0.5 shadow-lg transition-transform duration-300 group-hover:scale-105">
+      <div className="relative h-28 w-28 overflow-hidden rounded-full border border-gold bg-card shadow-lg transition-transform duration-300 group-hover:scale-105">
         <div 
           className="h-full w-full rounded-full bg-cover bg-center" 
-          style={{ backgroundImage: `url(${member.image})` }} 
+          style={{ 
+            backgroundImage: `url(${member.image})`,
+            backgroundColor: isCeo ? undefined : "#F1C40F",
+            backgroundBlendMode: isCeo ? undefined : "multiply"
+          }} 
           title={member.name}
         />
       </div>
