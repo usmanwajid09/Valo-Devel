@@ -21,7 +21,7 @@ export type CaseStudy = {
   slug: string;
   name: string;
   client: string;
-  category: "AI & ML" | "Web Apps" | "Mobile" | "Cloud";
+  category: "Products" | "AI & ML" | "Web Apps" | "Mobile" | "Cloud";
   industry: string;
   result: string;
   tech: string[];
