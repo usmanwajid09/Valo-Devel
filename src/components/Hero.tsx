@@ -145,16 +145,6 @@ export function Hero() {
               </div>
             </div>
           </div>
-
-          {/* Floating accent chip */}
-          <div className="animate-float absolute -right-5 top-10 rounded-2xl border border-gold/30 bg-card/90 px-4 py-3 shadow-gold backdrop-blur-md">
-            <div className="font-heading text-xl font-bold text-gradient-gold">AI-Native</div>
-            <div className="text-[0.7rem] text-muted">Engineering Team</div>
-          </div>
-          <div className="animate-float absolute -left-5 top-1/2 rounded-2xl border border-gold/30 bg-card/90 px-4 py-3 shadow-gold backdrop-blur-md" style={{ animationDelay: "1.5s" }}>
-            <div className="font-heading text-xl font-bold text-gradient-gold">7-Day</div>
-            <div className="text-[0.7rem] text-muted">First Milestone</div>
-          </div>
         </motion.div>
       </div>
 

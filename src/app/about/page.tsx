@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ShieldCheck, Building2, FileCheck, Clock } from "lucide-react";
 import { ImpactBand } from "@/components/sections/ImpactBand";
 import { PageHero } from "@/components/PageHero";
@@ -171,11 +172,14 @@ export default function AboutPage() {
           <Reveal delay={0.1}>
             <div className="relative group overflow-hidden rounded-2xl border border-gold bg-card shadow-lg hover:shadow-gold transition-all duration-300">
               <div className="aspect-[16/9] w-full relative">
-                {/* Austin skyline tech photo */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                  style={{ backgroundImage: `url(https://images.unsplash.com/photo-1531218150217-54595bc2b934?auto=format&fit=crop&w=800&q=80)` }}
-                  aria-hidden="true"
+                <Image
+                  src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?auto=format&fit=crop&w=800&q=80"
+                  alt="Austin skyline and tech hub"
+                  fill
+                  priority
+                  unoptimized
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-black/20" aria-hidden="true" />
                 
@@ -196,12 +200,12 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Team Hierarchy Tree */}
+      {/* Team Section */}
       <Section id="team" className="scroll-mt-20">
         <SectionHeading
-          eyebrow="Team Structure"
-          title={<>Our organizational <span className="text-gradient-gold">hierarchy</span></>}
-          subtitle="A structured, accountable team with senior oversight and transparent execution paths."
+          eyebrow="Our Team"
+          title={<>Meet our <span className="text-gradient-gold">leadership</span></>}
+          subtitle="A senior team of specialists built for trust, speed, and real execution outcomes."
         />
 
         <div className="mt-16 flex flex-col items-center w-full">
@@ -253,7 +257,6 @@ export default function AboutPage() {
               </Reveal>
             </div>
           </div>
-          
         </div>
       </Section>
 

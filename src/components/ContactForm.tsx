@@ -14,6 +14,49 @@ const labelClass = "mb-1.5 block text-xs font-medium uppercase tracking-wider te
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      company: formData.get("company") as string,
+      email: formData.get("email") as string,
+      whatsapp: formData.get("whatsapp") as string,
+      service: formData.get("service") as string,
+      budget: formData.get("budget") as string,
+      timeline: formData.get("timeline") as string,
+      description: formData.get("description") as string,
+    };
+
+    try {
+      const endpoint = process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT || "/api/contact";
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const resData = await response.json();
+      if (!response.ok) {
+        throw new Error(resData.error || "Failed to send message. Please try again.");
+      }
+
+      setSubmitted(true);
+    } catch (err: any) {
+      console.error(err);
+      setError(err.message || "An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   if (submitted) {
     return (
@@ -32,10 +75,7 @@ export function ContactForm() {
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        setSubmitted(true);
-      }}
+      onSubmit={handleSubmit}
       className="rounded-2xl border border-gold bg-card/50 p-6 md:p-8"
     >
       <div className="grid gap-5 sm:grid-cols-2">
@@ -95,9 +135,20 @@ export function ContactForm() {
           />
         </div>
       </div>
-      <Button type="submit" className="mt-6 w-full" size="lg">
-        <Send className="h-4 w-4" /> Send message
+      <Button type="submit" className="mt-6 w-full" size="lg" disabled={isSubmitting}>
+        {isSubmitting ? (
+          "Sending..."
+        ) : (
+          <>
+            <Send className="h-4 w-4" /> Send message
+          </>
+        )}
       </Button>
+      {error && (
+        <p className="mt-4 text-center text-sm font-semibold text-red-500">
+          {error}
+        </p>
+      )}
       <p className="mt-3 text-center text-xs text-muted">
         We respond within 24 hours. Your details stay private.
       </p>
