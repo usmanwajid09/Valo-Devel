@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 import { TechChip } from "@/components/ui/Badge";
 import type { TeamMember } from "@/lib/content";
 
@@ -25,16 +25,30 @@ export function TeamCard({ member }: { member: TeamMember }) {
           {member.role}
         </p>
 
-        {/* Email Link (if provided) */}
-        {member.email && (
-          <a 
-            href={`mailto:${member.email}`} 
-            className="mt-2 flex items-center gap-1.5 text-[0.75rem] text-muted hover:text-gold transition-colors duration-200"
-          >
-            <Mail className="h-3.5 w-3.5 text-gold/80" />
-            <span>{member.email}</span>
-          </a>
-        )}
+        {/* Links */}
+        <div className="mt-2.5 flex flex-col items-center gap-1.5">
+          {member.email && (
+            <a 
+              href={`mailto:${member.email}`} 
+              className="flex items-center gap-1.5 text-[0.75rem] text-muted hover:text-gold transition-colors duration-200"
+            >
+              <Mail className="h-3.5 w-3.5 text-gold/80" />
+              <span>{member.email}</span>
+            </a>
+          )}
+
+          {member.linkedin && (
+            <a 
+              href={member.linkedin} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-[0.75rem] text-muted hover:text-gold transition-colors duration-200"
+            >
+              <Linkedin className="h-3.5 w-3.5 text-gold/80" />
+              <span>LinkedIn Profile</span>
+            </a>
+          )}
+        </div>
 
         {/* Primary Qualification/Skill Badge */}
         <div className="mt-3">

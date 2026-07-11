@@ -402,6 +402,7 @@ export type TeamMember = {
   image: string;
   bgImage: string;
   email?: string;
+  linkedin?: string;
 };
 
 export const team: TeamMember[] = [
@@ -424,6 +425,7 @@ export const team: TeamMember[] = [
     image: "/images/team/usman-wajid.jpg",
     bgImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=240&q=80",
     email: "usman@valordevs.com",
+    linkedin: "https://www.linkedin.com/in/usmanwajid26/",
   },
   {
     name: "Fahad Bilal",
