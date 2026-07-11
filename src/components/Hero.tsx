@@ -7,7 +7,7 @@ import { heroBackgrounds } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { Typewriter } from "@/components/ui/Typewriter";
 import { ParticleField } from "@/components/ParticleField";
-import { ShieldMark } from "@/components/Logo";
+import { InteractiveShowcase } from "@/components/InteractiveShowcase";
 import { siteConfig } from "@/lib/site";
 
 const fadeUp = {
@@ -20,12 +20,11 @@ const fadeUp = {
 };
 
 const rotatingServices = [
-  "Custom Software",
-  "AI & Machine Learning",
-  "Generative & Agentic AI",
-  "Mobile Apps",
-  "Cloud & DevOps",
-  "Product MVPs",
+  "Custom AI & Agentic Systems",
+  "High-Performance Web Apps",
+  "Scale-Ready Cloud Clusters",
+  "Robust Mobile Architectures",
+  "Production-Grade MVPs",
 ];
 
 export function Hero() {
@@ -46,7 +45,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-grid-faint [background-size:46px_46px] [mask-image:radial-gradient(70%_60%_at_50%_30%,black,transparent)]" aria-hidden="true" />
       <ParticleField className="absolute inset-0" />
 
-      <div className="container relative grid items-center gap-12 py-20 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="container relative grid items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr]">
         {/* Copy */}
         <div>
           <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show">
@@ -61,11 +60,11 @@ export function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            className="mt-6 text-4xl font-bold leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl"
+            className="mt-6 text-4xl font-bold leading-[1.05] sm:text-5xl md:text-6xl lg:text-7.5xl"
           >
-            We Build.
+            Certified Architecture.
             <br />
-            We <span className="text-gradient-gold">Deliver.</span>
+            <span className="text-gradient-gold">Shipped in 7 Days.</span>
           </motion.h1>
 
           <motion.p
@@ -75,11 +74,11 @@ export function Hero() {
             animate="show"
             className="mt-6 max-w-xl text-lg text-muted"
           >
-            An AI-native software engineering partner for US & UK businesses. We build{" "}
+            We are an Austin-based software studio of certified cloud architects and senior developers. We engineer high-performance{" "}
             <span className="font-medium text-gold">
               <Typewriter words={rotatingServices} />
             </span>{" "}
-            — with a working milestone in your first 7 days.
+            platforms — delivering your first working milestone in 7 days, guaranteed.
           </motion.p>
 
           <motion.div
@@ -116,35 +115,14 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Showcase image */}
+        {/* Showcase Area */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
           className="relative hidden lg:block"
         >
-          <div className="absolute -inset-6 rounded-[2.5rem] bg-gold/10 blur-3xl" aria-hidden="true" />
-          <div className="relative h-[480px] overflow-hidden rounded-3xl border border-gold/30 shadow-card">
-            <Image
-              src={heroBackgrounds.heroShowcase}
-              alt="Valor Devs engineers building software"
-              fill
-              priority
-              sizes="(max-width: 1024px) 0px, 40vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/15 to-transparent mix-blend-overlay" aria-hidden="true" />
-
-            {/* Brand badge */}
-            <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl border border-gold/30 bg-background/70 px-4 py-3 backdrop-blur-md">
-              <ShieldMark className="h-9 w-9" />
-              <div className="leading-tight">
-                <div className="font-heading text-sm font-bold text-white">Valor Devs</div>
-                <div className="text-[0.7rem] font-medium text-gold">Code with Courage</div>
-              </div>
-            </div>
-          </div>
+          <InteractiveShowcase />
         </motion.div>
       </div>
 
