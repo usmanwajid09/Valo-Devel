@@ -9,7 +9,7 @@ const demos = [
     id: "circle",
     title: "Circle Compiler & VS Code Walkthrough",
     description: "Watch the Circle compiler compile systems code to WebAssembly in under 10ms with instant autocomplete and diagnostic syntax checking.",
-    videoUrl: "https://vjs.zencdn.net/v/oceans.mp4",
+    videoUrl: "/videos/coding-loop.mp4",
     logs: [
       "[Circle CLI] Initializing build environment...",
       "[Circle CLI] Scanning target files in main.cl",
@@ -25,7 +25,7 @@ const demos = [
     id: "weave",
     title: "Weave AI Router Cost Gateway Demo",
     description: "See the Weave proxy analyze query complexity and dynamically route inputs to mini models, saving 40% on API costs while keeping response times under 8ms.",
-    videoUrl: "https://www.w3schools.com/html/movie.mp4",
+    videoUrl: "/videos/server-loop.mp4",
     logs: [
       "[Weave Gateway] Proxy server active on port 8080",
       "[Weave Gateway] Intercepting request (Prompt size: 1.2k tokens)",

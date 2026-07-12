@@ -22,6 +22,9 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: "./",
+  },
   title: {
     default: `${siteConfig.name} — ${siteConfig.slogan}`,
     template: `%s · ${siteConfig.name}`,

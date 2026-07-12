@@ -1,6 +1,6 @@
 import { siteConfig } from "./site";
 import type { Service } from "./services";
-import type { CaseStudy } from "./content";
+import type { CaseStudy, Article } from "./content";
 
 export function getOrganizationSchema() {
   return {
@@ -69,5 +69,30 @@ export function getProjectSchema(study: CaseStudy) {
     },
     "genre": study.industry,
     "keywords": study.tech.join(", ")
+  };
+}
+
+export function getArticleSchema(article: Article) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": article.title,
+    "description": article.excerpt,
+    "image": article.image,
+    "datePublished": article.date,
+    "author": {
+      "@type": "Organization",
+      "name": siteConfig.name,
+      "url": siteConfig.url
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": siteConfig.name,
+      "url": siteConfig.url
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${siteConfig.url}/insights/${article.slug}`
+    }
   };
 }

@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/Badge";
 import { ArticleCard } from "@/components/cards/ArticleCard";
 import { CTASection } from "@/components/CTASection";
 import { articles, getArticle } from "@/lib/content";
+import { getArticleSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -34,9 +35,14 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
   if (!article) notFound();
 
   const related = articles.filter((a) => a.slug !== article.slug).slice(0, 3);
+  const schema = getArticleSchema(article);
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <PageHero
         eyebrow={article.category}
         crumbs={[{ label: "Insights", href: "/insights" }, { label: article.title }]}

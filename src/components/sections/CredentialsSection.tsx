@@ -1,6 +1,8 @@
 "use client";
 
-import { Trophy, Cloud, Code2, ShieldCheck, Check } from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
+import { Trophy, Cloud, Code2, ShieldCheck, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 
 const credentials = [
@@ -42,7 +44,51 @@ const credentials = [
   },
 ];
 
+const certificatesList = [
+  {
+    title: "OptimusAutomate Machine Learning Internship",
+    issuer: "OptimusAutomate",
+    desc: "Verification of successfully completing the Machine Learning Internship Program with verified dedication and assignments.",
+    image: "/certificates/cert1.png",
+  },
+  {
+    title: "Claude with Amazon Bedrock",
+    issuer: "Anthropic",
+    desc: "Certification of completion for AWS Bedrock integration patterns, custom prompt engineering, and serverless foundation models.",
+    image: "/certificates/cert2.png",
+  },
+  {
+    title: "AI Fluency: Frameworks & Foundations",
+    issuer: "Anthropic",
+    desc: "Verified framework proficiency covering LLM agent topologies, contextual windows management, and prompt routing parameters.",
+    image: "/certificates/cert3.png",
+  },
+  {
+    title: "Claude 101",
+    issuer: "Anthropic",
+    desc: "Core capabilities certification covering model orchestration, system parameters, and general application integration strategies.",
+    image: "/certificates/cert4.png",
+  },
+  {
+    title: "Model Context Protocol: Advanced Topics",
+    issuer: "Anthropic",
+    desc: "Advanced credentials for building custom MCP servers, schema management, and context window orchestration pathways.",
+    image: "/certificates/cert5.png",
+  },
+];
+
 export function CredentialsSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCertIndex, setSelectedCertIndex] = useState(0);
+
+  const handleNext = () => {
+    setSelectedCertIndex((prev) => (prev + 1) % certificatesList.length);
+  };
+
+  const handlePrev = () => {
+    setSelectedCertIndex((prev) => (prev - 1 + certificatesList.length) % certificatesList.length);
+  };
+
   return (
     <section className="relative overflow-hidden py-24 border-t border-gold/10">
       <div className="absolute inset-0 bg-grid-faint [background-size:40px_40px] opacity-10" aria-hidden="true" />
@@ -70,7 +116,17 @@ export function CredentialsSection() {
             const Icon = cred.icon;
             return (
               <StaggerItem key={cred.title} className="h-full">
-                <div className={`relative flex h-full flex-col justify-between rounded-3xl border bg-gradient-to-b p-6 backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${cred.color}`}>
+                <div 
+                  onClick={() => {
+                    if (cred.holder === "Usman Wajid") {
+                      setIsModalOpen(true);
+                      setSelectedCertIndex(0);
+                    }
+                  }}
+                  className={`relative flex h-full flex-col justify-between rounded-3xl border bg-gradient-to-b p-6 backdrop-blur-md transition-all duration-300 ${
+                    cred.holder === "Usman Wajid" ? "cursor-pointer hover:border-gold/40 hover:scale-[1.02]" : "hover:scale-[1.02]"
+                  } hover:shadow-lg ${cred.color}`}
+                >
                   
                   {/* Top section */}
                   <div>
@@ -95,13 +151,21 @@ export function CredentialsSection() {
                   </div>
 
                   {/* Bottom section / verified check */}
-                  <div className="mt-6 pt-4 border-t border-white/5 flex items-center gap-2">
-                    <span className={`inline-flex h-4 w-4 items-center justify-center rounded-full text-[10px] font-bold ${cred.checkBg}`}>
-                      <Check className="h-2.5 w-2.5 stroke-[3]" />
-                    </span>
-                    <span className="text-[10px] font-semibold text-white/60 uppercase tracking-wider">
-                      Verified Credential
-                    </span>
+                  <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className={`inline-flex h-4 w-4 items-center justify-center rounded-full text-[10px] font-bold ${cred.checkBg}`}>
+                        <Check className="h-2.5 w-2.5 stroke-[3]" />
+                      </span>
+                      <span className="text-[10px] font-semibold text-white/60 uppercase tracking-wider">
+                        Verified Credential
+                      </span>
+                    </div>
+
+                    {cred.holder === "Usman Wajid" && (
+                      <span className="text-[10px] text-gold font-bold hover:underline">
+                        View certs →
+                      </span>
+                    )}
                   </div>
 
                 </div>
@@ -109,6 +173,108 @@ export function CredentialsSection() {
             );
           })}
         </Stagger>
+
+        {/* Action Button */}
+        <Reveal delay={0.2}>
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gold/30 bg-gold/5 text-xs text-gold font-semibold uppercase tracking-wider hover:bg-gold/15 hover:border-gold/45 active:scale-95 transition-all shadow-md"
+            >
+              <Trophy className="h-4 w-4" /> View Verified Certificates
+            </button>
+          </div>
+        </Reveal>
+
+        {/* Interactive Overlay Modal */}
+        {isModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 p-4 backdrop-blur-xl transition-all duration-300">
+            <div className="relative w-full max-w-5xl rounded-3xl border border-gold/30 bg-card p-6 shadow-2xl md:p-8">
+              
+              {/* Close Button */}
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full border border-gold/20 bg-background/50 text-muted hover:text-white transition-colors"
+                aria-label="Close Gallery"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              {/* Title Header */}
+              <div className="mb-6">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-gold">
+                  {certificatesList[selectedCertIndex].issuer} Certified
+                </span>
+                <h3 className="text-xl font-bold text-white mt-1">
+                  {certificatesList[selectedCertIndex].title}
+                </h3>
+                <p className="text-xs text-muted mt-2 leading-relaxed max-w-2xl">
+                  {certificatesList[selectedCertIndex].desc}
+                </p>
+              </div>
+
+              {/* Slider Layout */}
+              <div className="grid gap-6 md:grid-cols-[1fr_320px] items-center">
+                
+                {/* Left Side: Big Certificate Image Display */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-gold/20 bg-background flex items-center justify-center p-2 group shadow-inner">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={certificatesList[selectedCertIndex].image}
+                      alt={certificatesList[selectedCertIndex].title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 80vw"
+                      className="object-contain rounded-lg"
+                      priority
+                    />
+                  </div>
+                  
+                  {/* Image Overlay Navigation Arrows */}
+                  <button
+                    onClick={handlePrev}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 border border-gold/20 text-white hover:bg-gold hover:text-background transition-all shadow-md"
+                    aria-label="Previous Certificate"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-background/80 border border-gold/20 text-white hover:bg-gold hover:text-background transition-all shadow-md"
+                    aria-label="Next Certificate"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
+                </div>
+
+                {/* Right Side: Navigation Thumbnails Selection List */}
+                <div className="space-y-3">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-muted/60">
+                    Verify Other Credentials ({selectedCertIndex + 1}/{certificatesList.length})
+                  </span>
+                  
+                  <div className="flex flex-col gap-2.5 max-h-[300px] overflow-y-auto pr-1">
+                    {certificatesList.map((cert, index) => (
+                      <button
+                        key={cert.title}
+                        onClick={() => setSelectedCertIndex(index)}
+                        className={`text-left p-3 rounded-xl border text-xs transition-all duration-300 ${
+                          selectedCertIndex === index
+                            ? "border-gold/50 bg-gold/5 text-gold font-bold"
+                            : "border-gold/15 bg-background/40 text-muted hover:border-gold/30 hover:text-white"
+                        }`}
+                      >
+                        <div className="font-semibold line-clamp-1">{cert.title}</div>
+                        <div className="text-[10px] opacity-70 mt-0.5">{cert.issuer}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        )}
 
       </div>
     </section>

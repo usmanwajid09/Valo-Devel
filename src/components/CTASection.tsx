@@ -13,15 +13,19 @@ export function CTASection({
 }) {
   return (
     <section className="relative overflow-hidden py-24">
-      <Image
-        src={heroBackgrounds.cta}
-        alt=""
-        fill
-        sizes="100vw"
-        className="object-cover object-center"
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-background/85" aria-hidden="true" />
+      {/* Looping video backdrop and overlays */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover opacity-15"
+        >
+          <source src="/videos/server-loop.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-background/80" aria-hidden="true" />
+      </div>
       <div className="absolute inset-0 bg-radial-fade" aria-hidden="true" />
       <div className="container relative">
         <Reveal className="relative overflow-hidden rounded-3xl border border-gold/30 bg-card/60 p-10 text-center md:p-16">

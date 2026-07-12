@@ -9,6 +9,7 @@ import { Typewriter } from "@/components/ui/Typewriter";
 import { ParticleField } from "@/components/ParticleField";
 import { InteractiveShowcase } from "@/components/InteractiveShowcase";
 import { siteConfig } from "@/lib/site";
+import { ScrollPhysicsCanvas } from "@/components/ui/ScrollPhysicsCanvas";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -31,20 +32,26 @@ const rotatingServices = [
 export function Hero() {
   return (
     <section className="relative flex min-h-[92vh] items-center overflow-hidden">
-      {/* Backgrounds */}
-      <Image
-        src={heroBackgrounds.cta}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center opacity-25"
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/85 to-background" aria-hidden="true" />
+      {/* Looping video backdrop and overlays */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover opacity-[0.14]"
+        >
+          <source src="/videos/server-loop.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" aria-hidden="true" />
+      </div>
+
       <div className="absolute inset-0 bg-radial-fade" aria-hidden="true" />
       <div className="absolute inset-0 bg-grid-faint [background-size:46px_46px] [mask-image:radial-gradient(70%_60%_at_50%_30%,black,transparent)]" aria-hidden="true" />
+      
+      {/* Layered Animations */}
       <ParticleField className="absolute inset-0" />
+      <ScrollPhysicsCanvas />
 
       <div className="container relative grid items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr]">
         {/* Copy */}

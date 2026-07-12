@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Mail, Linkedin } from "lucide-react";
 import { TechChip } from "@/components/ui/Badge";
 import type { TeamMember } from "@/lib/content";
@@ -8,10 +9,12 @@ export function TeamCard({ member }: { member: TeamMember }) {
       
       {/* Circular Avatar with standard styling */}
       <div className="relative h-28 w-28 overflow-hidden rounded-full border border-gold bg-card shadow-lg transition-transform duration-300 group-hover:scale-105">
-        <div 
-          className="h-full w-full rounded-full bg-cover bg-center" 
-          style={{ backgroundImage: `url(${member.image})` }} 
-          title={member.name}
+        <Image
+          src={member.image}
+          alt={member.name}
+          fill
+          sizes="112px"
+          className="object-cover rounded-full"
         />
       </div>
 
