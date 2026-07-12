@@ -9,7 +9,7 @@ const demos = [
     id: "circle",
     title: "Circle Compiler & VS Code Walkthrough",
     description: "Watch the Circle compiler compile systems code to WebAssembly in under 10ms with instant autocomplete and diagnostic syntax checking.",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-coding-on-a-laptop-computer-40742-large.mp4",
+    videoUrl: "https://vjs.zencdn.net/v/oceans.mp4",
     logs: [
       "[Circle CLI] Initializing build environment...",
       "[Circle CLI] Scanning target files in main.cl",
@@ -25,7 +25,7 @@ const demos = [
     id: "weave",
     title: "Weave AI Router Cost Gateway Demo",
     description: "See the Weave proxy analyze query complexity and dynamically route inputs to mini models, saving 40% on API costs while keeping response times under 8ms.",
-    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-data-center-server-racks-with-flashing-led-lights-42998-large.mp4",
+    videoUrl: "https://www.w3schools.com/html/movie.mp4",
     logs: [
       "[Weave Gateway] Proxy server active on port 8080",
       "[Weave Gateway] Intercepting request (Prompt size: 1.2k tokens)",

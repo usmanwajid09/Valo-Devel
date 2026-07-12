@@ -20,11 +20,12 @@ const fadeUp = {
 };
 
 const rotatingServices = [
-  "Custom AI & Agentic Systems",
-  "High-Performance Web Apps",
-  "Scale-Ready Cloud Clusters",
-  "Robust Mobile Architectures",
-  "Production-Grade MVPs",
+  "Custom Software",
+  "AI & Machine Learning",
+  "Generative & Agentic AI",
+  "Mobile Apps",
+  "Cloud & DevOps",
+  "Product MVPs",
 ];
 
 export function Hero() {
@@ -60,11 +61,11 @@ export function Hero() {
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            className="mt-6 text-4xl font-bold leading-[1.05] sm:text-5xl md:text-6xl lg:text-7.5xl"
+            className="mt-6 text-4xl font-bold leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Certified Architecture.
+            We Build.
             <br />
-            <span className="text-gradient-gold">Shipped in 7 Days.</span>
+            We <span className="text-gradient-gold">Deliver.</span>
           </motion.h1>
 
           <motion.p
@@ -74,11 +75,11 @@ export function Hero() {
             animate="show"
             className="mt-6 max-w-xl text-lg text-muted"
           >
-            We are an Austin-based software studio of certified cloud architects and senior developers. We engineer high-performance{" "}
+            An AI-native software engineering partner for US & UK businesses. We build{" "}
             <span className="font-medium text-gold">
               <Typewriter words={rotatingServices} />
             </span>{" "}
-            platforms — delivering your first working milestone in 7 days, guaranteed.
+            — with a working milestone in your first 7 days.
           </motion.p>
 
           <motion.div

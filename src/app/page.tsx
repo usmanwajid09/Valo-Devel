@@ -130,7 +130,7 @@ export default function HomePage() {
       {/* Global impact band */}
       <ImpactBand
         image={heroBackgrounds.impact}
-        videoUrl="https://assets.mixkit.co/videos/preview/mixkit-abstract-glowing-digital-network-connections-33068-large.mp4"
+        videoUrl="https://vjs.zencdn.net/v/oceans.mp4"
         eyebrow="Our Global Impact"
         titleLead="Building software for ambitious teams across the"
         titleAccent="US, UK & EU."
