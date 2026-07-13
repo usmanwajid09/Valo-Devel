@@ -3,6 +3,7 @@ import { ArrowRight, Search, Hammer, Rocket } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { StatsStrip } from "@/components/sections/StatsStrip";
+import { CredentialsSection } from "@/components/sections/CredentialsSection";
 import { IndustriesGrid } from "@/components/sections/IndustriesGrid";
 import { LogoStrip } from "@/components/sections/LogoStrip";
 import { ImpactBand } from "@/components/sections/ImpactBand";
@@ -52,6 +53,7 @@ export default function HomePage() {
       </Section>
 
       <StatsStrip />
+      <CredentialsSection />
 
       {/* How We Work */}
       <Section>
@@ -126,6 +128,7 @@ export default function HomePage() {
       {/* Global impact band */}
       <ImpactBand
         image={heroBackgrounds.impact}
+        videoUrl="https://vjs.zencdn.net/v/oceans.mp4"
         eyebrow="Our Global Impact"
         titleLead="Building software for ambitious teams across the"
         titleAccent="US, UK & EU."

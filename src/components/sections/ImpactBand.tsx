@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
  */
 export function ImpactBand({
   image,
+  videoUrl,
   eyebrow,
   titleLead,
   titleAccent,
@@ -15,6 +16,7 @@ export function ImpactBand({
   cta,
 }: {
   image: string;
+  videoUrl?: string;
   eyebrow: string;
   titleLead: React.ReactNode;
   titleAccent: React.ReactNode;
@@ -23,14 +25,26 @@ export function ImpactBand({
 }) {
   return (
     <section className="relative flex min-h-[460px] items-center overflow-hidden md:min-h-[540px]">
-      <Image
-        src={image}
-        alt=""
-        fill
-        sizes="100vw"
-        className="object-cover object-center"
-        aria-hidden="true"
-      />
+      {videoUrl ? (
+        <video
+          src={videoUrl}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover opacity-30"
+          aria-hidden="true"
+        />
+      ) : (
+        <Image
+          src={image}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+          aria-hidden="true"
+        />
+      )}
       {/* Layered navy overlays for legibility */}
       <div className="absolute inset-0 bg-background/75" aria-hidden="true" />
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/40 to-background" aria-hidden="true" />

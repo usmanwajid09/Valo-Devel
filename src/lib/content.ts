@@ -21,7 +21,7 @@ export type CaseStudy = {
   slug: string;
   name: string;
   client: string;
-  category: "AI & ML" | "Web Apps" | "Mobile" | "Cloud";
+  category: "Products" | "AI & ML" | "Web Apps" | "Mobile" | "Cloud";
   industry: string;
   result: string;
   tech: string[];
@@ -220,9 +220,101 @@ export const caseStudies: CaseStudy[] = [
     accent: "from-violet-500/40 to-gold/20",
     image: `https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c${IMG}`,
   },
+  {
+    slug: "internal-accountants",
+    name: "Internal Accountants Portal",
+    client: "Internal Accountants",
+    category: "Web Apps",
+    industry: "Financial Services",
+    result: "Automated bookkeeping and reporting for 500+ corporate clients",
+    tech: ["Next.js", "Tailwind CSS", "Node.js", "PostgreSQL", "Stripe"],
+    overview:
+      "Internal Accountants is a premium UK-based financial firm that needed a high-performance bookkeeping portal to manage compliance, cash flow, and tax reporting for their growing list of corporate clients.",
+    challenge:
+      "Their legacy manual workflow was prone to human error and unable to compile tax records in real time, causing reporting delays.",
+    solution:
+      "We built a tailored portal with sub-second database query caching, automated Stripe billing pipelines, and client document sharing, accelerating accounting output by 74%.",
+    metrics: [
+      { label: "Bookkeeping speed", value: "+74%" },
+      { label: "Clients managed", value: "500+" },
+      { label: "Report latency", value: "<3s" },
+      { label: "Billing automation", value: "100%" },
+    ],
+    accent: "from-teal-500/40 to-gold/20",
+    image: `https://images.unsplash.com/photo-1554224155-8d04cb21cd6c${IMG}`,
+  },
+  {
+    slug: "globe-academics",
+    name: "Globe Academics Student Portal",
+    client: "Globe Academics",
+    category: "Web Apps",
+    industry: "Education",
+    result: "Unified student portal onboarding 10k+ active users",
+    tech: ["React", "Next.js", "Supabase", "Tailwind CSS", "Vercel"],
+    overview:
+      "Globe Academics, a premier educational consultancy, required a secure, unified student portal to manage admissions, schedules, and assignments.",
+    challenge:
+      "Fragmented third-party systems resulted in data silos and frequent login errors, degrading the student experience.",
+    solution:
+      "We designed and built a custom responsive portal featuring seamless single sign-on (SSO), class schedules, task tracking, and live messaging support.",
+    metrics: [
+      { label: "Active students", value: "10k+" },
+      { label: "Engagement rate", value: "+42%" },
+      { label: "Page load speed", value: "<1.2s" },
+      { label: "Issue resolution", value: "99%" },
+    ],
+    accent: "from-blue-500/40 to-gold/20",
+    image: `https://images.unsplash.com/photo-1523050854058-8df90110c9f1${IMG}`,
+  },
+  {
+    slug: "circle-lang",
+    name: "Circle Programming Language",
+    client: "Valor Devs (In-house Product)",
+    category: "Products",
+    industry: "Developer Tools",
+    result: "Fast-growing open-source compiler and VS Code extension",
+    tech: ["Rust", "TypeScript", "WebAssembly", "VS Code API", "GitHub"],
+    overview:
+      "A lightweight, blazing-fast programming language and companion VS Code extension engineered in-house to streamline system-level architecture design.",
+    challenge:
+      "Traditional compiler setups are complex and resource-heavy, discouraging quick developer prototyping.",
+    solution:
+      "We built Circle in Rust, compiling it to WebAssembly to run directly in the browser and VS Code extension. The extension provides instant diagnostic linting, autocomplete, and one-click compilation.",
+    metrics: [
+      { label: "GitHub downloads", value: "15k+" },
+      { label: "Compiler speed", value: "<10ms" },
+      { label: "Diagnosing time", value: "Real-time" },
+      { label: "Open source", value: "MIT License" },
+    ],
+    accent: "from-purple-500/40 to-gold/20",
+    image: `https://images.unsplash.com/photo-1555066931-4365d14bab8c${IMG}`,
+  },
+  {
+    slug: "weave-ai-router",
+    name: "Weave AI Router",
+    client: "Valor Devs (In-house Product)",
+    category: "Products",
+    industry: "AI Infrastructure",
+    result: "Intelligent AI gateway optimizing prompt routing and costs",
+    tech: ["Node.js", "Redis", "TypeScript", "OpenAI API", "Anthropic API"],
+    overview:
+      "An in-house intelligent middleware router that dynamically routes API prompts to the most optimal model based on complexity, speed requirements, and cost.",
+    challenge:
+      "Using premium models like Claude 3.5 Sonnet or GPT-4o for simple queries leads to excessive API bills for startups.",
+    solution:
+      "We designed Weave to run as a high-throughput proxy. It analyzes query complexity, routing simple prompts to lightweight models (Claude Haiku / GPT-4o-mini) and complex prompts to premium models, cutting costs by 40%.",
+    metrics: [
+      { label: "Cost savings", value: "-40%" },
+      { label: "Router latency", value: "<8ms" },
+      { label: "Prompts handled", value: "2.8M" },
+      { label: "Model routing accuracy", value: "98%" },
+    ],
+    accent: "from-rose-500/40 to-gold/20",
+    image: `https://images.unsplash.com/photo-1620712943543-bcc4688e7485${IMG}`,
+  },
 ];
 
-export const caseStudyFilters = ["All", "AI & ML", "Web Apps", "Mobile", "Cloud"] as const;
+export const caseStudyFilters = ["All", "Products", "AI & ML", "Web Apps", "Mobile", "Cloud"] as const;
 
 export function getCaseStudy(slug: string) {
   return caseStudies.find((c) => c.slug === slug);
@@ -240,6 +332,20 @@ export type Testimonial = {
 };
 
 export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Valor Devs completely transformed our bookkeeping portal at internalaccountants.com. They delivered a high-performance system ahead of schedule, enabling us to scale seamlessly.",
+    name: "Hamza Zahoor",
+    role: "CEO",
+    company: "Internal Accountants",
+  },
+  {
+    quote:
+      "Working with Valor Devs was a game-changer for globeacademics.com. They understood our educational workflow and delivered a clean, responsive platform that our students love using.",
+    name: "Dr. Aisha Vance",
+    role: "Founder & Director",
+    company: "Globe Academics",
+  },
   {
     quote:
       "Valor Devs shipped a working milestone in the first week and never slowed down. It felt like having a senior team that actually cared about our outcomes.",
@@ -295,107 +401,49 @@ export type TeamMember = {
   skills: string[];
   image: string;
   bgImage: string;
+  email?: string;
+  linkedin?: string;
 };
 
 export const team: TeamMember[] = [
   {
-    name: "Muhammad Iqbal Shahid",
-    role: "Co-Founder & CEO",
-    title: "Co-Founder & CEO",
+    name: "Muhammad Iqbal",
+    role: "CEO",
+    title: "CEO",
     bio: "Drives the strategic vision, business operations, and executive leadership of Valor Devs, ensuring client success and US/international compliance.",
     skills: ["Executive Leadership", "Product Strategy", "IT Consulting", "Business Operations", "US Compliance"],
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&h=400&q=80",
+    image: "/images/team/iqbal-shahid.jpg",
     bgImage: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=600&h=240&q=80",
+    email: "iqbal@valordevs.com",
   },
   {
     name: "Usman Wajid",
-    role: "Co-Founder & CTO",
-    title: "Co-Founder & CTO",
-    bio: "Leads the technology roadmap, systems architecture, and engineering execution, bridging complex business requirements with robust, scalable software.",
-    skills: ["Systems Architecture", "Agile Leadership", "Technical Scoping", "IT Strategy", "Software Engineering"],
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80",
+    role: "Project Manager & Senior Developer",
+    title: "Project Manager & Senior Developer",
+    bio: "Leads project execution and software development, bridging client requirements with robust, modern technology solutions.",
+    skills: ["Project Management", "Full-Stack Development", "Agile Leadership", "Technical Scoping", "Software Engineering"],
+    image: "/images/team/usman-wajid.jpg",
     bgImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=240&q=80",
-  },
-  {
-    name: "Ubaidullah",
-    role: "Chief Operating Officer (COO)",
-    title: "Chief Operating Officer (COO)",
-    bio: "Oversees daily operational processes, service delivery, project management, and client onboarding pipelines, ensuring maximum agility and milestone compliance.",
-    skills: ["Operations Management", "Project Delivery", "Agile/Scrum", "Resource Allocation", "Client Relations"],
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=400&q=80",
-    bgImage: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=600&h=240&q=80",
-  },
-  {
-    name: "Arwa Mehak",
-    role: "Chief Financial Officer (CFO)",
-    title: "Chief Financial Officer (CFO)",
-    bio: "Manages global financial strategy, billing compliance under Global Vital Spark LLC, contracts, and investor relations.",
-    skills: ["Financial Strategy", "Global Billing", "Contracts & MSA", "Stripe & Wise Integrations", "Compliance"],
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&h=400&q=80",
-    bgImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=240&q=80",
-  },
-  {
-    name: "Hamza Hussain",
-    role: "Chief Product Officer (CPO)",
-    title: "Chief Product Officer (CPO)",
-    bio: "Designs pixel-perfect interfaces, visual systems, and interactive prototypes to validate user flows and product direction before development starts.",
-    skills: ["Product Design", "Figma", "Design Systems", "User Research", "Interaction Design", "Framer"],
-    image: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&h=400&q=80",
-    bgImage: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?auto=format&fit=crop&w=600&h=240&q=80",
+    email: "usman@valordevs.com",
+    linkedin: "https://www.linkedin.com/in/usmanwajid26/",
   },
   {
     name: "Fahad Bilal",
-    role: "VP of Engineering",
-    title: "VP of Engineering",
-    bio: "Leads engineering architecture and core development, engineering responsive Next.js apps, typed APIs, and database structures.",
-    skills: ["Next.js", "React", "Node.js", "TypeScript", "PostgreSQL", "MongoDB", "Prisma", "System Design"],
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80",
+    role: "AI Engineer",
+    title: "AI Engineer",
+    bio: "Develops smart AI solutions, Next.js applications, and custom models to integrate intelligence into everything we build.",
+    skills: ["AI/ML Integrations", "Next.js", "React", "Node.js", "TypeScript", "System Design"],
+    image: "/images/team/fahad-bilal.jpeg",
     bgImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&h=240&q=80",
   },
   {
-    name: "Dr. Arslan Raza",
-    role: "Chief AI Officer (CAIO)",
-    title: "Chief AI Officer (CAIO)",
-    bio: "Engineers RAG vector search indices, custom model fine-tunes, and autonomous agent systems (LangChain, LlamaIndex).",
-    skills: ["Python", "TensorFlow", "PyTorch", "LangChain", "OpenAI API", "RAG", "n8n", "Zapier"],
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=400&q=80",
-    bgImage: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&h=240&q=80",
-  },
-  {
     name: "Ahmad Masood",
-    role: "Head of Infrastructure",
-    title: "Head of Infrastructure",
-    bio: "Architects secure microservices and cloud networks (AWS/GCP), IaC configuration, and automated build (CI/CD) pipelines.",
-    skills: ["AWS", "GCP", "Docker", "Kubernetes", "CI/CD", "Terraform", "GitHub Actions"],
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&h=400&q=80",
+    role: "Junior Web Developer",
+    title: "Junior Web Developer",
+    bio: "Builds responsive, clean web interfaces, supports core development tasks, and ensures visual fidelity.",
+    skills: ["HTML5/CSS3", "JavaScript", "TypeScript", "React", "Git"],
+    image: "/images/team/ahmad-masood.jpeg",
     bgImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&h=240&q=80",
-  },
-  {
-    name: "Amna",
-    role: "Head of Data Science",
-    title: "Head of Data Science",
-    bio: "Extracts actionable insights from complex datasets, builds predictive models, and designs data pipelines to drive business intelligence.",
-    skills: ["Data Science", "Machine Learning", "Python", "SQL", "BigQuery", "Data Visualization", "Pandas", "Scikit-Learn", "TensorFlow"],
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80",
-    bgImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&h=240&q=80",
-  },
-  {
-    name: "Zainab Farooq",
-    role: "Senior Frontend Engineer",
-    title: "Senior Frontend Engineer",
-    bio: "Builds modular, highly interactive interfaces, styles web panels using Tailwind CSS, and maps client-side state models.",
-    skills: ["React", "HTML5/CSS3", "JavaScript", "Tailwind CSS", "Git", "Figma Handoff"],
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&h=400&q=80",
-    bgImage: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&h=240&q=80",
-  },
-  {
-    name: "Amina Malik",
-    role: "Senior QA Engineer",
-    title: "Senior QA Engineer",
-    bio: "Executes automated test scripts using Playwright and Cypress, maintains regressions, and audits API payloads.",
-    skills: ["Playwright", "Cypress", "Manual Testing", "API Testing", "Bug Reporting", "Git"],
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&h=400&q=80",
-    bgImage: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=600&h=240&q=80",
   },
 ];
 

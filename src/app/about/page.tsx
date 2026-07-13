@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ShieldCheck, Building2, FileCheck, Clock } from "lucide-react";
 import { ImpactBand } from "@/components/sections/ImpactBand";
 import { PageHero } from "@/components/PageHero";
@@ -171,11 +172,14 @@ export default function AboutPage() {
           <Reveal delay={0.1}>
             <div className="relative group overflow-hidden rounded-2xl border border-gold bg-card shadow-lg hover:shadow-gold transition-all duration-300">
               <div className="aspect-[16/9] w-full relative">
-                {/* Austin skyline tech photo */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                  style={{ backgroundImage: `url(https://images.unsplash.com/photo-1531219572328-a0e75a6a9d76?auto=format&fit=crop&w=800&q=80)` }}
-                  aria-hidden="true"
+                <Image
+                  src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?auto=format&fit=crop&w=800&q=80"
+                  alt="Austin skyline and tech hub"
+                  fill
+                  priority
+                  unoptimized
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-black/20" aria-hidden="true" />
                 
@@ -196,93 +200,39 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Team Hierarchy Tree */}
+      {/* Team Section */}
       <Section id="team" className="scroll-mt-20">
         <SectionHeading
-          eyebrow="Team Structure"
-          title={<>Our organizational <span className="text-gradient-gold">hierarchy</span></>}
-          subtitle="A structured, accountable team with senior oversight and transparent execution paths."
+          eyebrow="Our Team"
+          title={<>Meet our <span className="text-gradient-gold">leadership</span></>}
+          subtitle="A senior team of specialists built for trust, speed, and real execution outcomes."
         />
 
         <div className="mt-16 flex flex-col items-center w-full">
           
-          {/* Tier 1: Co-Founders & C-Suite */}
-          <div className="w-full flex flex-col items-center mb-16">
+          {/* Tier 1: Co-Founders & Leadership */}
+          <div className="w-full flex flex-col items-center mb-8">
             <div className="mb-6 text-center">
               <span className="text-xs font-bold uppercase tracking-widest text-gold/80 bg-gold/5 border border-gold/20 px-3 py-1 rounded-full">
-                Executive Board
+                Leadership
               </span>
             </div>
             
             {/* Co-Founders Row */}
             <div className="grid gap-6 sm:grid-cols-2 max-w-3xl w-full justify-center">
               <Reveal className="w-full">
-                <TeamCard member={team[0]} /> {/* Muhammad Iqbal Shahid (CEO) */}
+                <TeamCard member={team[0]} /> {/* Muhammad Iqbal (CEO) */}
               </Reveal>
               <Reveal delay={0.05} className="w-full">
-                <TeamCard member={team[1]} /> {/* Usman Wajid (CTO) */}
+                <TeamCard member={team[1]} /> {/* Usman Wajid (Project Manager & Senior Developer) */}
               </Reveal>
             </div>
             
             {/* Vertical connector line */}
-            <div className="h-8 w-px bg-gold/40 my-4" />
-            
-            {/* C-Suite Officers Row */}
-            <div className="grid gap-6 sm:grid-cols-2 max-w-3xl w-full justify-center">
-              <Reveal delay={0.1} className="w-full">
-                <TeamCard member={team[2]} /> {/* Ubaidullah (COO) */}
-              </Reveal>
-              <Reveal delay={0.15} className="w-full">
-                <TeamCard member={team[3]} /> {/* Arwa Mehak (CFO) */}
-              </Reveal>
-            </div>
-            
-            {/* Vertical connector line down to VPs */}
-            <div className="h-10 w-px bg-gold/40 mt-6" />
+            <div className="h-10 w-px bg-gold/40 mt-8" />
           </div>
 
-          {/* Tier 2: VP & Department Leadership */}
-          <div className="w-full flex flex-col items-center mb-16">
-            {/* Horizontal connection bar (desktop only) */}
-            <div className="hidden lg:block w-[80%] h-px bg-gold/40" />
-            <div className="hidden lg:flex justify-between w-[80%] h-6 mb-2">
-              <div className="w-px bg-gold/40 h-full" />
-              <div className="w-px bg-gold/40 h-full" />
-              <div className="w-px bg-gold/40 h-full" />
-              <div className="w-px bg-gold/40 h-full" />
-              <div className="w-px bg-gold/40 h-full" />
-            </div>
-            
-            <div className="mb-8 text-center">
-              <span className="text-xs font-bold uppercase tracking-widest text-gold/80 bg-gold/5 border border-gold/20 px-3 py-1 rounded-full">
-                Department VPs & Leadership
-              </span>
-            </div>
-
-            {/* Department VPs Row */}
-            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-full">
-              <Reveal delay={0.2} className="w-full">
-                <TeamCard member={team[4]} /> {/* Hamza Hussain (CPO) */}
-              </Reveal>
-              <Reveal delay={0.25} className="w-full">
-                <TeamCard member={team[5]} /> {/* Fahad Bilal (VP of Engineering) */}
-              </Reveal>
-              <Reveal delay={0.3} className="w-full">
-                <TeamCard member={team[6]} /> {/* Dr. Arslan Raza (CAIO) */}
-              </Reveal>
-              <Reveal delay={0.35} className="w-full">
-                <TeamCard member={team[7]} /> {/* Ahmad Masood (Head of Infrastructure) */}
-              </Reveal>
-              <Reveal delay={0.4} className="w-full">
-                <TeamCard member={team[8]} /> {/* Amna (Head of Data Science) */}
-              </Reveal>
-            </div>
-            
-            {/* Vertical connector line down to Specialists */}
-            <div className="h-10 w-px bg-gold/40 mt-6" />
-          </div>
-
-          {/* Tier 3: Engineering Specialists */}
+          {/* Tier 2: Engineering Specialists */}
           <div className="w-full flex flex-col items-center">
             {/* Horizontal connection bar (desktop only) */}
             <div className="hidden sm:block w-[40%] h-px bg-gold/40" />
@@ -293,21 +243,20 @@ export default function AboutPage() {
             
             <div className="mb-6 text-center">
               <span className="text-xs font-bold uppercase tracking-widest text-gold/80 bg-gold/5 border border-gold/20 px-3 py-1 rounded-full">
-                Engineering & Quality Specialists
+                Engineering & AI Specialists
               </span>
             </div>
 
-            {/* Specialists Row */}
-            <div className="grid gap-6 sm:grid-cols-2 max-w-2xl w-full justify-center">
-              <Reveal delay={0.45} className="w-full">
-                <TeamCard member={team[9]} /> {/* Zainab Farooq (Senior Frontend Engineer) */}
+            {/* Core Row */}
+            <div className="grid gap-6 sm:grid-cols-2 max-w-3xl w-full justify-center">
+              <Reveal delay={0.1} className="w-full">
+                <TeamCard member={team[2]} /> {/* Fahad Bilal (AI Engineer) */}
               </Reveal>
-              <Reveal delay={0.5} className="w-full">
-                <TeamCard member={team[10]} /> {/* Amina Malik (Senior QA Engineer) */}
+              <Reveal delay={0.15} className="w-full">
+                <TeamCard member={team[3]} /> {/* Ahmad Masood (Junior Web Developer) */}
               </Reveal>
             </div>
           </div>
-          
         </div>
       </Section>
 

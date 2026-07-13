@@ -16,9 +16,10 @@ export const siteConfig = {
     full: "Austin, TX 78731, United States",
   },
   contact: {
-    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@valordevs.com",
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "+15128654345",
-    whatsappLink: "https://wa.me/15128654345",
+    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "info@valordevs.com",
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP ?? "+15127608676",
+    whatsappLink: "https://wa.me/15127608676",
+    careersFormUrl: process.env.NEXT_PUBLIC_CAREERS_FORM_URL ?? "https://docs.google.com/forms/d/e/1FAIpQLSf4VlJWhV4P11P2xT3k5h4_lD-H3y9b-R7nO_kR4W3D8KjQqw/viewform",
   },
   social: {
     linkedin: "https://www.linkedin.com/company/valordevs",
@@ -41,7 +42,7 @@ export const heroBackgrounds = {
   cta: `https://images.unsplash.com/photo-1451187580459-43490279c0fa${BG}`,
   impact: `https://images.unsplash.com/photo-1446776811953-b23d57bd21aa${BG}`,
   expertise: `https://images.unsplash.com/photo-1639653279211-09958a51fb00${BG}`,
-  heroShowcase: `https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=900&q=75`,
+  heroShowcase: `https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=75`,
 } as const;
 
 export const trustSignals = [

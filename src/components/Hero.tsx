@@ -7,8 +7,9 @@ import { heroBackgrounds } from "@/lib/site";
 import { Button } from "@/components/ui/Button";
 import { Typewriter } from "@/components/ui/Typewriter";
 import { ParticleField } from "@/components/ParticleField";
-import { ShieldMark } from "@/components/Logo";
+import { InteractiveShowcase } from "@/components/InteractiveShowcase";
 import { siteConfig } from "@/lib/site";
+import { ScrollPhysicsCanvas } from "@/components/ui/ScrollPhysicsCanvas";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -31,22 +32,28 @@ const rotatingServices = [
 export function Hero() {
   return (
     <section className="relative flex min-h-[92vh] items-center overflow-hidden">
-      {/* Backgrounds */}
-      <Image
-        src={heroBackgrounds.cta}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center opacity-25"
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/85 to-background" aria-hidden="true" />
+      {/* Looping video backdrop and overlays */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover opacity-[0.14]"
+        >
+          <source src="/videos/server-loop.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" aria-hidden="true" />
+      </div>
+
       <div className="absolute inset-0 bg-radial-fade" aria-hidden="true" />
       <div className="absolute inset-0 bg-grid-faint [background-size:46px_46px] [mask-image:radial-gradient(70%_60%_at_50%_30%,black,transparent)]" aria-hidden="true" />
+      
+      {/* Layered Animations */}
       <ParticleField className="absolute inset-0" />
+      <ScrollPhysicsCanvas />
 
-      <div className="container relative grid items-center gap-12 py-20 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="container relative grid items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr]">
         {/* Copy */}
         <div>
           <motion.div custom={0} variants={fadeUp} initial="hidden" animate="show">
@@ -116,45 +123,14 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Showcase image */}
+        {/* Showcase Area */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
           className="relative hidden lg:block"
         >
-          <div className="absolute -inset-6 rounded-[2.5rem] bg-gold/10 blur-3xl" aria-hidden="true" />
-          <div className="relative h-[480px] overflow-hidden rounded-3xl border border-gold/30 shadow-card">
-            <Image
-              src={heroBackgrounds.heroShowcase}
-              alt="Valor Devs engineers building software"
-              fill
-              priority
-              sizes="(max-width: 1024px) 0px, 40vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/15 to-transparent mix-blend-overlay" aria-hidden="true" />
-
-            {/* Brand badge */}
-            <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl border border-gold/30 bg-background/70 px-4 py-3 backdrop-blur-md">
-              <ShieldMark className="h-9 w-9" />
-              <div className="leading-tight">
-                <div className="font-heading text-sm font-bold text-white">Valor Devs</div>
-                <div className="text-[0.7rem] font-medium text-gold">Code with Courage</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Floating accent chip */}
-          <div className="animate-float absolute -right-5 top-10 rounded-2xl border border-gold/30 bg-card/90 px-4 py-3 shadow-gold backdrop-blur-md">
-            <div className="font-heading text-xl font-bold text-gradient-gold">AI-Native</div>
-            <div className="text-[0.7rem] text-muted">Engineering Team</div>
-          </div>
-          <div className="animate-float absolute -left-5 top-1/2 rounded-2xl border border-gold/30 bg-card/90 px-4 py-3 shadow-gold backdrop-blur-md" style={{ animationDelay: "1.5s" }}>
-            <div className="font-heading text-xl font-bold text-gradient-gold">7-Day</div>
-            <div className="text-[0.7rem] text-muted">First Milestone</div>
-          </div>
+          <InteractiveShowcase />
         </motion.div>
       </div>
 
